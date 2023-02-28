@@ -1,0 +1,96 @@
+body {
+    font-family: Helvetica55;
+}
+
+/* MENU */
+.open-menu .menu-links a:nth-child(2) {
+    height: 65px;
+}
+
+.open-menu .menu-links a:nth-child(2)::after {
+    content: "";
+    width: 50%;
+    height: 0px;
+    display: block;
+    border-bottom: 12px solid white;
+    position: relative;
+    top: -64%;
+    left: -18%;
+}
+
+/* PAGE HEADER */
+.page-header-container {
+    margin: 150px 0;
+}
+
+
+/* FILTER */
+.filter-menu {
+    margin-bottom: 35px;
+}
+
+.filter-menu>ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-menu>ul li{
+    font-family: Helvetica45;
+    font-size: 24px;
+    font-weight: 300;
+    margin-left: 30px;
+}
+
+
+/* CATALOG */
+.works-catalog-list {
+    position: relative;
+    margin-top: -5px;
+}
+
+.works-catalog-list img {
+    width: 100%;
+}
+
+.description {
+    margin-left: 50px;
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+}
+
+.works-catalog-list h2 {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.works-catalog-list table {
+    width: 40%;
+    text-align: left;
+    font-size: 20px;
+}
+
+.works-catalog-list table th{
+    border: 0px;
+    padding: 0 0 17px 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: #b3b3b3;
+}
+
+.works-catalog-list table td{
+    font-family: Helvetica45;
+    font-weight: 500;
+}
+
+.works-catalog .view-all {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.works-catalog .view-all a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-family: Helvetica55;
+    font-size: 20px;
+}

@@ -1,0 +1,21 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Delete Video</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-delete-product.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="delete-confirmation">
+    <h2>Are you sure you want to delete {{video.title}}?</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'videos-list' %}">Cancel</a>
+        <input type="submit" value="Delete" name="confirm">
+    </form>
+</div>
+{% endblock %}

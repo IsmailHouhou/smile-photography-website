@@ -1,0 +1,195 @@
+h2 {
+    font-weight: 500;
+    font-size: 35px;
+    margin-top: 130px;
+    margin-bottom: 60px;
+}
+
+/* FORM */
+#reserve-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#left-form-container {
+    width: 70%;
+}
+
+#right-form-container {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 175px;
+}
+
+/* RADIO INPUT */
+form .radio-container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form .radio-button-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-bottom: 70px;
+}
+
+form .custom-radio-button {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+form .custom-radio-button .checkmark{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 1.5px solid #b3b3b3;
+}
+
+form .custom-radio-button input:checked + .checkmark {
+    background-color: #fcde02;
+    border: 1.5px solid #fcde02;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form .radio-container label {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+
+/* TEXT INPUT */
+#reserve-form .text-input-container label {
+    display: block;
+    margin-bottom: 15px;
+    color: #b3b3b3;
+}
+
+#reserve-form .text-input-container input {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+#reserve-form .text-input-container .form-row {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#reserve-form .text-input-container input:focus {
+    outline: none;
+}
+
+#reserve-form .text-input-container .form-cell {
+    margin-right: 30px;
+    width: 46%;
+}
+
+#reserve-form .text-input-container #phone-row {
+    display: flex;
+    width: 50%;
+}
+
+#reserve-form .text-input-container #phone-row {
+    display: flex;
+    width: 50%;
+}
+
+#reserve-form .text-input-container #phone-row #prefix {
+    width: 20%;
+}
+
+#reserve-form .text-input-container #phone-row .form-cell {
+    width: 80%;
+}
+
+ /* To remove styling from autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+
+/* RIGHT CONTAINER */
+#right-form-container label {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    color: #b3b3b3;
+}
+
+#right-form-container input[type="date"] {
+    font-family: Helvetica55;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    color-scheme: dark;
+    width: 92%;
+}
+
+#right-form-container input[type="date"]::-webkit-calendar-picker-indicator {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#right-form-container .date-row {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#right-form-container p{
+    font-size: 20px;
+}
+
+#right-form-container .total-amount{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+#right-form-container .total-amount hr{
+    margin-top: -16px;
+    margin-bottom: -12px;
+}
+
+
+
+/* BUTTON */
+#reserve-form .form-button {
+    text-align: right;
+    margin-top: 50px;
+}
+
+#reserve-form .form-button button{
+    font-family: Helvetica55;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px 94%;
+    background-color: #fff;
+}
+
+#reserve-form .form-button button:hover{
+    cursor: pointer;
+}

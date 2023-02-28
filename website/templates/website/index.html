@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - Home</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+        <script> 
+            $(function(){
+              $("#header").load("header.html"); 
+              $("#footer").load("footer.html"); 
+              $("#lets-talk").load("lets-talk.html");
+            });
+        </script> 
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header>
+            <ul>
+                <li><a href="{% url 'home' %}"><img id="logo_text" src="{% static 'images/01. Graphics/Fichier 1mdpi.png' %}" alt="Logo_text"></a></li>
+                <li><img id="logo_icon" src="{% static 'images/01. Graphics/Fichier 27mdpi.png' %}" alt="Logo_icon"></li>
+                <li>
+                    <a id="menu" onclick="showMenu()">
+                        <img src="{% static 'images/01. Graphics/Fichier 2mdpi.png' %}" alt="Menu">
+                        <p>Menu</p>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        
+        <div class="open-menu fade-menu">
+            <header>
+                <ul>
+                    <li><a href="{% url 'home' %}"><img id="logo_text" src="{% static 'images/01. Graphics/Fichier 1mdpi.png' %}" alt="Logo_text"></a></li>
+                    <li><img id="logo_icon" src="{% static 'images/01. Graphics/Fichier 27mdpi.png' %}" alt="Logo_icon"></li>
+                    <li>
+                        <a id="menu" onclick="hideMenu()">
+                            <img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="close-menu">
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            
+            <div class="menu-links">
+                <a href="{% url 'services' %}">services</a>
+                <a href="{% url 'works' %}">works</a>
+                <a href="{% url 'materials' %}">materials</a>
+                <a href="{% url 'about' %}">about</a>
+                <a href="{% url 'contact' %}">contact</a>
+            </div>
+        
+            <div class="menu-footer">
+                <a href="#">Youtube</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+        
+        <script src="{% static 'js/header.js' %}"></script>
+        <!-- END OF HEADER -->
+        
+        <div class="hero">
+            <div class="text-layout">
+                <h1>we <br> look into <br> creative</h1>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetuer</p>
+                    <p>Lorem ipsum dolor <br> sit amet,</p>
+                </div>
+            </div>
+            <h1 id="angles" style="margin-left: 300px;">angles</h1>
+            <img id="hero-image" src="{{showreel.thumbnail.url}}" alt="hero image">
+            <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
+            <div class="reel-container fade">
+                <a onclick="closeReel()"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close reel"></a>
+                <div id="reel-image-container">
+                    <video id="video" src="{{showreel.video.url}}" controls></video>
+                </div>
+            </div>
+        </div>
+
+        <div class="clients">
+            <h2>Our Happy Clients</h2>
+            <div>
+                <img src="{% static 'images/01. Graphics/Fichier 3mdpi.png' %}" alt="Inwi">
+                <img src="{% static 'images/01. Graphics/Fichier 4mdpi.png' %}" alt="BNP Parabias">
+                <img src="{% static 'images/01. Graphics/Fichier 5mdpi.png' %}" alt="Societe Generale">
+                <img id="marocTelecom" src="{% static 'images/01. Graphics/Fichier 6mdpi.png' %}" alt="Maroc Telecom">
+                <img id="devoteam" src="{% static 'images/01. Graphics/Fichier 7mdpi.png' %}" alt="Devoteam">
+            </div>
+        </div>
+
+        <div class="services">
+            <div id="service-header" class="child">
+                <h1 class="section-header">our core</h1>
+                <h1 class="section-header" style="margin-left: 135px;">services</h1>
+            </div>
+            <div class="child service-carousel fade">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a class="prev" onclick="plusServices(-1)"><img id="prev" src="{% static 'images/01. Graphics/Fichier 8mdpi.png' %}" alt="previous"></a>
+                <a class="next" onclick="plusServices(1)"><img id="next" src="{% static 'images/01. Graphics/Fichier 9mdpi.png' %}" alt="next"></a>
+                <hr>
+                <h2>Lorem ipsum dolor sit amet 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo conse</p>
+            </div>
+            <div class="child service-carousel fade">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a class="prev" onclick="plusServices(-1)"><img id="prev" src="{% static 'images/01. Graphics/Fichier 8mdpi.png' %}" alt="previous"></a>
+                <a class="next" onclick="plusServices(1)"><img id="next" src="{% static 'images/01. Graphics/Fichier 9mdpi.png' %}" alt="next"></a>
+                <hr>
+                <h2>Lorem ipsum dolor sit amet 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo conse</p>
+            </div>
+            <div class="child service-carousel fade">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <a class="prev" onclick="plusServices(-1)"><img id="prev" src="{% static 'images/01. Graphics/Fichier 8mdpi.png' %}" alt="previous"></a>
+                <a class="next" onclick="plusServices(1)"><img id="next" src="{% static 'images/01. Graphics/Fichier 9mdpi.png' %}" alt="next"></a>
+                <hr>
+                <h2>Lorem ipsum dolor sit amet 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo conse</p>
+            </div>
+        </div>
+
+        <div class="works">
+            <h1 class="section-header">featured</h1>
+            <h1 class="section-header" style="margin-left: 140px">works</h1>
+            <table>
+                <tr>
+                    <th style="width: 50%">Projects</th>
+                    <th>Categories</th>
+                    <th> </th>
+                </tr>
+                {% for video in videos %}
+                <!-- ADD A LINK TO GO TO FROM THE VIDEO -->
+                    <tr>
+                        <td>{{video.title}}</td>
+                        <td>{{video.category}}</td>
+                        <td><a href=""><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div>
+                <a href="{% url 'works' %}">View All</a>
+            </div>
+        </div>
+
+        <div class="equipment">
+            <h1 class="section-header">equipment</h1>
+            <h1 class="section-header" style="margin-left: 180px">rental</h1>
+            <div>
+                <div class="container">
+                    <img src="{% static 'images/02. Photos/Fichier 32mdpi.png' %}" alt="video camera">
+                    <div class="description">
+                        <h2>Video Camera</h2>
+                        <div class="tags">
+                            <h3>Sony Fx9</h3>
+                            <h3>Sony Fx3</h3>
+                            <h4>...</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <img src="{% static 'images/02. Photos/Fichier 33mdpi.png' %}" alt="video camera">
+                    <div class="description">
+                        <h2>Lighting Equipment</h2>
+                        <div class="tags">
+                            <h3>Soft Box</h3>
+                            <h3>LEDs</h3>
+                            <h4>...</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <img src="{% static 'images/02. Photos/Fichier 34mdpi.png' %}" alt="video camera">
+                    <div class="description">
+                        <h2>Video Camera</h2>
+                        <div class="tags">
+                            <h3>Soft Box</h3>
+                            <h3>LEDs</h3>
+                            <h4>...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-in-mind">
+            <h1 class="page-header">have</h1>
+            <h1 class="page-header" style="margin-left: 150px">a project</h1>
+            <h1 class="page-header">in mind?</h1>
+            <div>
+                <a href="contact">Let's talk</a>
+            </div>
+        </div>
+
+        {% include "website/footer.html" %}
+        <script src="{% static 'js/index.js' %}"></script>
+    </body>
+</html>

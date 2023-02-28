@@ -1,0 +1,72 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Products list</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-products-list.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 16mdpi.png' %}" alt="">
+    <h2>Product List</h2>
+</div>
+
+<div id="search-bar">
+    <div id="left-search-container">
+        <div id="search-input">
+            <i class="fa fa-search"></i>
+            <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
+        </div>
+    </div>
+    <div id="right-search-container">
+        <a href="{% url 'add-product' %}"><span>&#43;</span><span>Nouvelle</span></a>
+    </div>
+</div>
+
+<table id="list-table">
+    <tr>
+        <th></th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>1 Day Price</th>
+        <th>3 Days Price</th>
+        <th>7 Days Price</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td class="product-image"><img src="{{product.productimage_set.first.image.url}}" alt=""></td>
+            <td><a href="{% url 'product-info' product.id %}">{{product.name}}</a></td>
+            <td>{{product.category}}</td>
+            <td>{{product.price_day_1|floatformat:"0"}} dh/jour</td>
+            <td>{{product.price_day_3|floatformat:"0"}} dh/jour</td>
+            <td>{{product.price_day_10|floatformat:"0"}} dh/jour</td>
+            <td class="modify">
+                <a href="{% url 'update-product' product.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 27mdpi.png' %}" alt=""></a>
+            </td>
+            <td class="modify">
+                <a href="{% url 'delete-product' product.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="pagination">
+    <p>1 to 10 of 79 pages</p>
+    <div class="pagination-right-container">
+        <p>The page you are on</p>
+        <select name="page" id="page">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <a href="">&lt;</a>
+        <a href="">&gt;</a>
+    </div>
+</div>
+{% endblock %}

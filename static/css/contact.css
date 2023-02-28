@@ -1,0 +1,116 @@
+body {
+    font-family: Helvetica55;
+}
+
+/* MENU */
+.open-menu .menu-links a:nth-child(5) {
+    height: 65px;
+}
+
+.open-menu .menu-links a:nth-child(5)::after {
+    content: "";
+    width: 37%;
+    display: inline-block;
+    border-bottom: 12px solid white;
+    position: relative;
+    top: -124%;
+    left: -15%;
+}
+
+
+/* PAGE HEADER */
+.page-header {
+    margin-bottom: 80px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+
+/* FORM */
+#message-form {
+    width: 70%;
+    margin-top: 120px;
+}
+
+#message-form label {
+    display: block;
+    margin-bottom: 15px;
+    color: #b3b3b3;
+}
+
+#message-form input, textarea {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+#message-form input:focus, textarea:focus {
+    outline: none;
+}
+
+ /* To remove styling from autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+#message-form textarea {
+    margin-right: 25px;
+    resize: none;
+    overflow: hidden;
+}
+
+#message-form textarea::placeholder {
+    font-family: Helvetica55;
+}
+
+#message-form .form-row {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#message-form .form-cell {
+    margin-right: 30px;
+    width: 46%;
+}
+
+#message-form .phone-cells {
+    display: flex;
+    width: 50%;
+}
+
+/* BUTTON */
+#message-form .form-button {
+    text-align: right;
+    margin-right: 25px;
+    margin-top: 50px;
+}
+
+#message-form .form-button button{
+    font-family: Helvetica55;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px 53px;
+    background-color: #fff;
+}
+
+#message-form .form-button button:hover{
+    cursor: pointer;
+}
+
+
+/* FOOTER */
+#footer footer{
+    margin-top: 150px;
+}

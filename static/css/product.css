@@ -1,0 +1,157 @@
+body {
+    font-family: Helvetica55;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+/* DESCRIPTION */
+.container .description {
+    width: 25%;
+    margin-top: 60px;
+}
+
+.container .description h2{
+    font-family: Helvetica45;
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+}
+
+.container .description .full-frame{
+    width: 84%;
+    margin-bottom: 35px;
+}
+
+.container .description h4{
+    font-size: 21px;
+    font-family: 'Helvetica55';
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.container .description p {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/* IMAGES */
+.container .images {
+    width: 43%;
+}
+
+.container .images img{
+    width: 100%;
+}
+
+.images .slides hr{
+    margin-top: -5px;
+    width: 25%;
+    position: relative;
+}
+
+.images .slide-menu {
+    display: flex;
+    justify-content: space-between;
+    font-family: Helvetica45;
+    margin-top: 16px;
+}
+
+.images .slide-menu a{
+    text-decoration: none;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+/* PRICES */
+.container .prices {
+    width: 24%;
+    position: relative;
+    left: 40px;
+    margin-top: 60px;
+}
+
+.container .prices h2 {
+    font-family: Helvetica45;
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.container .prices h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 17px;
+    letter-spacing: 0.5px;
+}
+
+.container .prices p {
+    color: #b3b3b3;
+    font-size: 16.5px;
+    line-height: 19px;
+}
+
+.container .prices form {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-button-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-bottom: 10px;
+    color: #b3b3b3;
+}
+
+.container .prices form .custom-radio-button {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.container .prices form .custom-radio-button .checkmark{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 1.5px solid #b3b3b3;
+}
+
+.container .prices form .custom-radio-button input:checked + .checkmark {
+    background-color: #fcde02;
+    border: 1.5px solid #fcde02;
+}
+
+.container .prices form input[type="radio"] {
+    display: none;
+}
+
+.container .prices form button {
+    text-transform: uppercase;
+    font-family: Helvetica55;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: #fff;
+    padding: 13px 82px;
+    cursor: pointer;
+}
+
+.container .prices form a {
+    text-decoration: none;
+    font-family: Helvetica55;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000;
+    background-color: #fff;
+    padding: 13px 91px;
+    cursor: pointer;
+}

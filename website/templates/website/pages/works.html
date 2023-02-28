@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - Works</title>
+        <link rel="stylesheet" href="{% static 'css/works.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        {% include "website/header.html" %}
+
+        <div class="page-header-container">
+            <h1 class="page-header">featured</h1>
+            <h1 class="page-header" style="margin-left: 360px">works</h1>
+        </div>
+
+
+        <div class="works-catalog">
+            <div class="filter-menu">
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Commercials</a></li>
+                    <li><a href="#">Documentary</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
+            </div>
+            {% for video in videos %}
+                <div class="works-catalog-list">
+                    <img src="{{video.thumbnail.url}}" alt="">
+                    <div class="description">
+                        <h2>{{video.title}}</h2>
+                        <table>
+                            <tr>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Year</th>
+                            </tr>
+                            <tr>
+                                <td>{{video.category}}</td>
+                                <td>{{video.shortDescription}}</td>
+                                <td>{{video.year}}</td>
+                            </tr>
+                            <tr>
+                                <td>Brands</td>
+                                <td>sit amet</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- MAYBE REMOVE VIEW ALL AND DON'T INCLUDE PAGING -->
+            <!-- <div class="view-all">
+                <a href="#">View All</a>
+            </div> -->
+        </div>
+        
+        {% include "website/lets-talk.html" %}
+
+        {% include "website/footer.html" %}
+    </body>
+</html>

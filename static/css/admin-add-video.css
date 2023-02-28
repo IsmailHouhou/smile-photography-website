@@ -1,0 +1,168 @@
+#title {
+    margin-bottom: 40px;
+}
+
+#title img {
+    margin-right: 10px;
+}
+
+#video-form {
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 3px;
+}
+
+#file-upload-row label {
+    margin-bottom: 20px;
+}
+
+#text-input-container {
+    width: 60%;
+}
+
+form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+form .form-item {
+    width: 70%;
+    margin-right: 20px;
+}
+
+form input, textarea, select {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: transparent;
+    font-family: Helvetica45;
+    font-weight: 600;
+}
+
+form textarea {
+    resize: none;
+}
+
+form #max {
+    font-size: 11px;
+    float: right;
+}
+
+form button {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 50px;
+    border-radius: 5px;
+    font-family: Helvetica45;
+}
+
+/* VIDEO UPLOAD */
+#file-upload-row {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#video-upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 30px;
+    text-align: center;
+}
+
+#video-upload-label {
+    font-size: 15px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+#video-upload-container.dragover {
+    border-color: #000;
+}
+
+#video-upload {
+    display: none;
+}
+
+#video-upload-button {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#video-list {
+    margin-top: 20px;
+    list-style-type: none;
+    color: #999;
+}
+
+#video-list li{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: Helvetica45;
+}
+
+
+
+/* THUMBNAIL UPLOAD */
+#thumbnail-upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 30px;
+    text-align: center;
+}
+
+#thumbnail-upload-label {
+    font-size: 15px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+#thumbnail-upload-container.dragover {
+    border-color: #000;
+}
+
+#thumbnail-upload {
+    display: none;
+}
+
+#thumbnail-upload-button {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#thumbnail-list {
+    margin-top: 20px;
+    list-style-type: none;
+    color: #999;
+}
+
+#thumbnail-list li{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: Helvetica45;
+}

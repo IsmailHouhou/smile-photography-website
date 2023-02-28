@@ -1,0 +1,22 @@
+{% load static %}
+<footer>
+    <div>
+        <a onclick="goTop()" style="cursor: pointer;">Go to top</a>
+        <div id="media">
+            <a href="#">Youtube</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+        </div>
+        <img src="{% static 'images/01. Graphics\Fichier 1mdpi.png' %}" alt="">
+    </div>
+    <hr>
+    <div>
+        <p>&copy 2022 SMILEPROD</p>
+        <p>contact@smileprod.com</p>
+    </div>
+</footer>
+<script>
+    function goTop() {
+        document.documentElement.scrollTop = 0;
+    }
+</script>

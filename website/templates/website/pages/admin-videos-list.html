@@ -1,0 +1,85 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Videos List</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-products-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/admin-videos-list.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 18mdpi.png' %}" alt="">
+    <h2>Videos List</h2>
+</div>
+
+<div id="showreel-container">
+    <h3>Showreel</h3>
+    <div id="showreel">
+        <!-- <img src="{% static 'images/02. Photos/Fichier 13mdpi.png' %}" alt=""> -->
+        <img src="{{showreel.thumbnail.url}}" alt="">
+        <div id="showreel-info">
+            <h2>Showreel Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt</p>
+            <a href="{% url 'update-showreel' %}">REPLACE</a>
+        </div>
+    </div>
+</div>
+
+<div id="portfolio-videos">
+    <h3>Portfolio Videos</h3>
+
+    <div id="search-bar">
+        <div id="left-search-container">
+            <div id="search-input">
+                <i class="fa fa-search"></i>
+                <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
+            </div>
+        </div>
+        <div id="right-search-container">
+            <a href="{% url 'add-video' %}"><span>&#43;</span><span>Nouvelle</span></a>
+        </div>
+    </div>
+
+    <table id="list-table">
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Client</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th></th>
+        </tr>
+        {% for video in videos %}
+            <tr>
+                <td class="product-image"><img src="{{video.thumbnail.url}}" alt=""></td>
+                <td>{{video.title}}</td>
+                <td>{{video.client}}</td>
+                <td>{{video.category}}</td>
+                <td>{{video.year}}</td>
+                <td class="modify">
+                    <a href="{% url 'delete-video' video.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="pagination">
+        <p>1 to 10 of 79 pages</p>
+        <div class="pagination-right-container">
+            <p>The page you are on</p>
+            <select name="page" id="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <a href="">&lt;</a>
+            <a href="">&gt;</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

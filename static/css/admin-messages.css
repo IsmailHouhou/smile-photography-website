@@ -1,0 +1,144 @@
+html, body {
+    /* height: auto; */
+}
+
+#full-page {
+    height: 100%;
+}
+
+#inbox-container {
+    margin: 30px 30px 0 30px;
+    display: flex;
+    background-color: #fff;
+    height: calc(100vh - 220px);
+}
+
+
+/* LEFT CONTAINER */
+#left-container {
+    border-right: 2px solid #ddd;
+    width: 300px;
+}
+
+#inbox-title h3 {
+    margin: 0;
+    padding: 20px 30px;
+    border-bottom: 2px solid #ddd;
+    /* border-right: 2px solid #ddd; */
+    font-family: 'Helvetica45';
+    font-weight: 600;
+    font-size: 18px;
+    color: #333;
+}
+
+.message-demo {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+    border-bottom: 2px solid #ddd;
+    /* border-right: 2px solid #ddd; */
+    cursor: pointer;
+}
+
+.message-demo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.message-info {
+    width: 80%;
+}
+
+.message-info * {
+    margin: 0;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.message-header h4{
+    font-size: 14px;
+    color: #333;
+}
+
+.message-header h5 {
+    font-size: 10px;
+    font-weight: 500;
+    color: #a3a3a3;
+}
+
+.message-info p {
+    font-size: 12px;
+    color: #a3a3a3;
+}
+
+.active {
+    background-color: #e8f6fa;
+    border-right: 0px;
+}
+
+
+/* RIGHT CONTAINER */
+.right-container {
+    width: calc(100% - 300px);
+}
+
+/* CLIENT NAME */
+#client-name {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding: 10px 15px;
+}
+
+#client-name h4{
+    margin: 0;
+    padding: 11px 0;
+    font-family: 'Helvetica45';
+}
+
+#client-name img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+/* MESSAGE */
+#message-text {
+    display: flex;
+    padding: 60px 50px 30px 50px;
+}
+
+#message-text img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+#message-area {
+    width: 43%;
+    background-color: #f2f2f2;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.form-details {
+    margin-bottom: 20px;
+}
+
+.form-details p{
+    font-size: 12px;
+    color: #a3a3a3;
+    margin-bottom: 6px;
+    margin-top: 0px;
+}

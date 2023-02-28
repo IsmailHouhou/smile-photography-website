@@ -1,0 +1,69 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Reservation</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-products-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/admin-reservations-list.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 17mdpi.png' %}" alt="">
+    <h2>List of Reservations</h2>
+</div>
+
+<div id="search-bar">
+    <div id="left-search-container">
+        <div id="search-input">
+            <i class="fa fa-search"></i>
+            <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
+        </div>
+    </div>
+</div>
+
+<table id="list-table">
+    <tr>
+        <th>Name</th>
+        <th>Materials</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>From</th>
+        <th>To</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for reservation in reservations %}
+        <tr>
+            <!-- <td onclick="window.location='/order-details';" style="cursor: pointer;">{{reservation.client}}</td> -->
+            <td><a href="{% url 'reservation-details' reservation.id %}">{{reservation.client_name}}</a></td>
+            <td>{{reservation.product}}</td>
+            <td>{{reservation.product.category}}</td>
+            <td>{{reservation.duration}}</td>
+            <td>{{reservation.start_date|date:"d/m/Y"}}</td>
+            <td>{{reservation.end_date|date:"d/m/Y"}}</td>
+            <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
+            <td class="modify">
+                <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="pagination">
+    <p>1 to 10 of 79 pages</p>
+    <div class="pagination-right-container">
+        <p>The page you are on</p>
+        <select name="page" id="page">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <a href="">&lt;</a>
+        <a href="">&gt;</a>
+    </div>
+</div>
+{% endblock %}

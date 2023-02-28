@@ -1,0 +1,80 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Product info</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-product-info.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 16mdpi.png' %}" alt="">
+    <h2>Product Info</h2>
+</div>
+<div id="product-info">
+    <div id="first-container">
+        <div class="info-container">
+            <div class="info-row">
+                <div class="info-item">
+                    <h4>Product Name</h4>
+                    <p>{{product.name}}</p>
+                </div>
+                <div class="info-item">
+                    <h4>Category</h4>
+                    <p>{{product.category}}</p>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-item">
+                    <h4>Product Summary</h4>
+                    <p>{{product.summary}}</p>
+                </div>
+            </div>
+        </div>
+        <div id="image-container">
+            <h4>Photos</h4>
+            <div id="images-list">
+                {% for image in product.productimage_set.all %}
+                    <img src="{{image.image.url}}" alt="">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="second-container">
+        <div class="info-row">
+            <div class="info-item">
+                <h4>Description</h4>
+                <p>{{product.description}}</p>
+            </div>
+        </div>
+    </div>
+    <h3>Pricing Informations</h3>
+    <div class="info-row pricing">
+        <div class="info-item">
+            <h4>1 Day Price</h4>
+            <p>{{product.price_day_1}}</p>
+        </div>
+        <div class="info-item">
+            <h4>3 Days Price</h4>
+            <p>{{product.price_day_3}}</p>
+        </div>
+        <div class="info-item">
+            <h4>10 Days Price</h4>
+            <p>{{product.price_day_10}}</p>
+        </div>
+    </div>
+    <div class="info-row pricing">
+        <div class="info-item">
+            <h4>Student Promotion</h4>
+            <p>{{product.student_promotion}}%</p>
+        </div>
+    </div>
+    <div id="buttons-row">
+        <a href="{% url 'update-product' product.id %}">EDIT</a>
+        <a href="{% url 'delete-product' product.id %}">DELETE</a>
+    </div>
+</div>
+{% endblock %}

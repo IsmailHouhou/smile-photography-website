@@ -1,0 +1,95 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Update Product</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-add-product.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 16mdpi.png' %}" alt="">
+    <h2>Update Product</h2>
+</div>
+
+<form id="product-form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="left-container">
+        <div class="form-row">
+            <div class="form-item">
+                <label for="product-name">Product Name</label>
+                <input type="text" name="name" id="product-name" value="{{product.name}}">
+            </div>
+            <div class="form-item">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    {% if product.category == 'Category1' %}
+                        <option value="Category1" selected>Category 1</option>
+                        <option value="Category2">Category 2</option>
+                        <option value="Camera Video">Camera Video</option>
+                    {% elif product.category == 'Category2' %}
+                        <option value="Category1">Category 1</option>
+                        <option value="Category2" selected>Category 2</option>
+                        <option value="Camera Video">Camera Video</option>
+                    {% elif product.category == 'Camera Video' %}
+                        <option value="Category1">Category 1</option>
+                        <option value="Category2">Category 2</option>
+                        <option value="Camera Video" selected>Camera Video</option>
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="product-summary">Product Summary</label>
+                <textarea type="text" name="summary" id="product-summary" rows="2">{{product.summary}}</textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="description">Description</label>
+                <textarea type="text" name="description" id="description" rows="5">{{product.description}}</textarea>
+            </div>
+        </div>
+        <h3>Pricing Informations</h3>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="1-day-price">1 Day Price</label>
+                <input type="text" name="price_day_1" value="{{product.price_day_1}}" id="1-day-price" pattern="^[0-9]+$" required>
+            </div>
+            <div class="form-item">
+                <label for="3-day-price">3 Day Price</label>
+                <input type="text" name="price_day_3" value="{{product.price_day_3}}" id="3-day-price" pattern="^[0-9]+$" required>
+            </div>
+            <div class="form-item">
+                <label for="10-day-price">10 Day Price</label>
+                <input type="text" name="price_day_10" value="{{product.price_day_10}}" id="10-day-price" pattern="^[0-9]+$" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="student-promotion">Student Promotion (%)</label>
+                <input type="text" name="student_promotion" value="{{product.student_promotion}}" id="student-promotion" pattern="^[0-9]+$" required>
+            </div>
+        </div>
+        <button type="submit">UPDATE</button>
+    </div>
+    <div class="right-container">
+        <div id="file-upload-container">
+            <div id="file-upload-label">Faites glisser et déposez des images ou
+                importer des images depuis votre ordinateur
+            </div>
+            <input type="file" id="file-upload" name="image" accept="image/*" multiple>
+            <button id="file-upload-button">Upload</button>
+        </div>
+        <div id="file-list"></div>
+    </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/upload-product.js' %}"></script>
+{% endblock %}

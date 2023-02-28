@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - Contact</title>
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        {% include "website/header.html" %}
+
+        <div class="page-header-container">
+            <h1 class="page-header">let's talk</h1>
+        </div>
+
+        <h1 class="subtitle">write your personal details</h1>
+
+        <form id="message-form" action="" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-cell">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="client_name" placeholder="Ismail" required>
+                </div>
+                <div class="form-cell">
+                    <label for="optional">Optional</label>
+                    <input type="text" name="" placeholder="Fathallah">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-cell">
+                    <label for="email">Email</label>
+                    <input type="email" name="client_email" placeholder="Fathallah@gmail.com" required>
+                </div>
+                <div class="phone-cells">
+                    <div class="form-cell" style="width: 20%;">
+                        <label for="prefix">Prefix</label>
+                        <input type="tel" name="client_prefix" pattern="^\+[0-9]{1,3}$" placeholder="+212" required>
+                    </div>
+                    <div class="form-cell" style="width: 80%;">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="client_phone" pattern="^[0-9]{9,10}$" placeholder="0612345678" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <textarea name="message" rows="6" placeholder="Type your question here..." required></textarea>
+            </div>
+            <div class="form-button">
+                <button type="submit">send message</button>
+            </div>
+        </form>
+        
+        <!-- TO MAKE TEXTAREA AUTO RESIZE -->
+        <!-- <script>
+            $("textarea").each(function () {
+                this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+            }).on("input", function () {
+                this.style.height = 0;
+                this.style.height = (this.scrollHeight) + "px";
+            });
+        </script> -->
+
+        {% include "website/footer.html" %}
+    </body>
+</html>

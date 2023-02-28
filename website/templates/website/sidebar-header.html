@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin-sidebar-header.css' %}">
+    {% block style %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+</head>
+<body>
+    <div id="full-page">
+        <!-- SIDEBAR HEADER -->
+        <div id="sidebar-header">
+            <div class="sidebar">
+                <div id="logo">
+                    <img src="{% static 'images/01. Graphics/1x/Logo Nav Bar mdpi.png' %}" alt="">
+                </div>
+                <div class="navigation">
+                    <div class="nav-row">
+                        <img src="{% static 'images/01. Graphics/1x/Fichier 4mdpi.png' %}" alt="">
+                        <a href="/dashboard">Dashboard</a>
+                    </div>
+                    <div class="nav-row-dropdown">
+                        <div id="products" class="dropdown">
+                            <img src="{% static 'images/01. Graphics/1x/Fichier 5mdpi.png' %}" alt="">
+                            <a onClick="showProductsMenu()">Products<i id="fa-icon-product" class="fa fa-caret-down"></i></a>
+                        </div>
+                        <div id="products-menu" class="dropdown-content">
+                            <a href="/add-product">Add New</a>
+                            <a href="/products-list">Products List</a>
+                        </div>
+                    </div>
+                    <div class="nav-row-dropdown">
+                        <div id="videos" class="dropdown">
+                            <img src="{% static 'images/01. Graphics/1x/Fichier 7mdpi.png' %}" alt="">
+                            <a onClick="showVideosMenu()">Videos<i id="fa-icon-video" class="fa fa-caret-down"></i></a>
+                        </div>
+                        <div id="videos-menu" class="dropdown-content">
+                            <a href="/add-video">Add New</a>
+                            <a href="/videos-list">Videos List</a>
+                        </div>
+                    </div>
+                    <div class="nav-row">
+                        <img src="{% static 'images/01. Graphics/1x/Fichier 9mdpi.png' %}" alt="">
+                        <a href="{% url 'reservations-list' %}">Reservations</a>
+                    </div>
+                    <div class="nav-row">
+                        <img src="{% static 'images/01. Graphics/1x/Fichier 13mdpi.png' %}" alt="">
+                        <a href="{% url 'messages' %}">Messages</a>
+                    </div>
+                    <div id="logout" class="nav-row">
+                        <img src="{% static 'images/01. Graphics/1x/Fichier 24mdpi.png' %}" alt="">
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="right-page-container">
+            <!-- ADMIN HEADER -->
+            <div id="admin-header">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 21mdpi.png' %}" alt="">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 22mdpi.png' %}" alt="">
+            </div>
+            
+            <!-- PAGE CONTENT -->
+            <div class="page-content">   
+                {% block page-content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    {% block script %}
+
+    {% endblock %}
+    <script src="{% static 'js/admin-sidebar.js' %}"></script>
+</body>
+</html>
+
+
+

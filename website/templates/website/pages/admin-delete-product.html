@@ -1,0 +1,21 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Delete Product</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-delete-product.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="delete-confirmation">
+    <h2>Are you sure you want to delete {{product.name}}?</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'product-info' product.id %}">Cancel</a>
+        <input type="submit" value="Delete" name="confirm">
+    </form>
+</div>
+{% endblock %}

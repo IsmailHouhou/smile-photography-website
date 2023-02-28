@@ -1,0 +1,86 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Reservation Details</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-reservation-details.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 17mdpi.png' %}" alt="">
+    <h2>Order Details</h2>
+</div>
+<div id="order-info">
+    <div class="info-container">
+        <h3>Product Informations</h3>
+        <p id="order-date">ORDER DATE: {{reservation.order_date|date:"d/m/Y"}}</p>
+        <div class="info-row">
+            <div class="info-item">
+                <h4>Product Name</h4>
+                <p>{{reservation.product.name}}</p>
+            </div>
+            <div class="info-item">
+                <h4>Category</h4>
+                <p>{{reservation.product.category}}</p>
+            </div>
+            <div class="info-item">
+                <h4>Photos</h4>
+                <img src="{{reservation.product.productimage_set.first.image.url}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="order-details" class="info-container">
+        <h3>Order Details</h3>
+        <div class="info-row">
+            <div class="info-item">
+                <h4>Client Name</h4>
+                <p>{{reservation.client_name}}</p>
+            </div>
+            <div class="info-item">
+                <h4>Client Type</h4>
+                <p>{{reservation.client_status}}</p>
+            </div>
+            <div class="info-item">
+                <h4>Company Name</h4>
+                <p>{{reservation.client_company}}</p>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-item">
+                <h4>Phone</h4>
+                <p>{{reservation.phoneNumber}}</p>
+            </div>
+            <div id="address" class="info-item">
+                <h4>Address</h4>
+                <p>{{reservation.client_address}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="total-container">
+        <div class="info-row">
+            <div class="info-item">
+                <h4>From</h4>
+                <p>{{reservation.start_date|date:"d/m/Y"}}</p>
+            </div>
+            <div class="info-item">
+                <h4>To</h4>
+                <p>{{reservation.end_date|date:"d/m/Y"}}</p>
+            </div>
+        </div>
+        <div class="info-row">
+            <div id="total" class="info-item">
+                <h4>TOTAL</h4>
+                <p>{{reservation.total_price}} dh</p>
+            </div>
+        </div>
+        <div id="submit-container" class="info-row">
+            <a href="{% url 'reservations-list' %}">CONFIRM</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

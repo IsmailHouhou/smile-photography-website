@@ -1,0 +1,94 @@
+body {
+    font-family: Helvetica55;
+}
+
+/* MENU */
+.open-menu .menu-links a:nth-child(1) {
+    height: 65px;
+}
+
+.open-menu .menu-links a:nth-child(1)::after {
+    content: "";
+    width: 37%;
+    display: inline-block;
+    border-bottom: 12px solid white;
+    position: relative;
+    top: -124%;
+    left: -18%;
+}
+
+/* PAGE HEADER */
+.page-header-container {
+    margin: 150px 0 250px 0;
+}
+
+/* SERVICE LIST */
+.service-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.service-list table td{
+    border-top: 2px solid #FFF;
+    padding-left: 20px;
+}
+
+.service-list table .service-title{
+    width: 32%;
+}
+
+.service-list table .service-title h3{
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+    top: -40px;
+}
+
+.service-list table .service-description p{
+    width: 80%;
+    font-family: Helvetica55;
+    font-size: 20px;
+    color: #b3b3b3;
+    position: relative;
+    top: -20px;
+}
+
+.service-list table td img{
+    width: 200px;
+    padding: 15px 30px 15px 15px;
+}
+
+
+/* SERVICE EXPERTISE */
+.service-expertise {
+    margin-top: 150px;
+    margin-bottom: -180px;
+}
+
+.service-expertise-item .service-expertise-image {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.service-expertise-item .service-expertise-image img{
+    width: 54%;
+}
+
+.service-expertise-item h1{
+    width: 52%;
+    font-size: 48px;
+    line-height: 48px;
+    position: relative;
+    top: -260px;
+    left: 40px;
+}
+
+.service-expertise .right-text h1{
+    text-align: right;
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+.service-expertise-item .right-image{
+    justify-content: flex-start;
+}

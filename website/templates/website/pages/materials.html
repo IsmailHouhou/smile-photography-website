@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - Materials</title>
+        <link rel="stylesheet" href="{% static 'css/materials.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        {% include 'website/header.html' %}
+
+        <div class="page-header-container">
+            <h1 class="page-header">equipment</h1>
+            <h1 class="page-header" style="margin-left: 435px">Rental</h1>
+        </div>
+
+        <div class="equipment-catalog">
+            <div class="filter-menu">
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Camera</a></li>
+                    <li><a href="#">Audio</a></li>
+                    <li><a href="#">Lighting</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
+            </div>
+
+            <div class="equipment-catalog-list">
+                {% for product in products %}
+                    <div class="equipment-catalog-item">
+                        <a href="{% url 'product' product.id %}"><img src="{{product.productimage_set.first.image.url}}" alt=""></a>
+                        <div class="description">
+                            <h2>{{product.name}}</h2>
+                            <table>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Type</th>
+                                </tr>
+                                <tr>
+                                    <td>{{product.category}}</td>
+                                    <td>Camera</td>
+                                </tr>
+                                <tr>
+                                    <td>Brands</td>
+                                    <td>Brands</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- <div class="equipment-catalog-item">
+                    <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
+                    <div class="description">
+                        <h2>Sony FX9</h2>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Type</th>
+                            </tr>
+                            <tr>
+                                <td>Camera</td>
+                                <td>Camera</td>
+                            </tr>
+                            <tr>
+                                <td>Brands</td>
+                                <td>Brands</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="equipment-catalog-list right-side">
+                <div class="equipment-catalog-item">
+                    <img src="{% static 'images/02. Photos/Fichier 20mdpi.png' %}" alt="">
+                    <div class="description">
+                        <h2>Zoom H5</h2>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Type</th>
+                            </tr>
+                            <tr>
+                                <td>Camera</td>
+                                <td>Camera</td>
+                            </tr>
+                            <tr>
+                                <td>Brands</td>
+                                <td>Brands</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="equipment-catalog-item">
+                    <img src="{% static 'images/02. Photos/Fichier 21mdpi.png' %}" alt="">
+                    <div class="description">
+                        <h2>Crane 3</h2>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Type</th>
+                            </tr>
+                            <tr>
+                                <td>Camera</td>
+                                <td>Camera</td>
+                            </tr>
+                            <tr>
+                                <td>Brands</td>
+                                <td>Brands</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="view-all">
+                <a href="#">View All</a>
+            </div>
+        </div>
+
+        {% include 'website/lets-talk.html' %}
+
+        {% include 'website/footer.html' %}
+    </body>
+</html>

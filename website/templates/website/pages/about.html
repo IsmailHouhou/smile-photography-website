@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - About Us</title>
+        <link rel="stylesheet" href="{% static 'css/about.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="../scripts/jquery-3.6.3.min.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("../header.html");
+              $("#footer").load("../footer.html");
+            });
+        </script> 
+    </head>
+    <body>
+        {% include "website/header.html" %}
+
+        <div class="about-hero">
+            <h1>this is</h1>
+            <h1 style="margin-left: 140px">about us</h1>
+            <img src="{% static 'images/02. Photos/Fichier 31mdpi.png' %}" alt="">
+        </div>
+
+        <div class="about-description">
+            <p lang="de">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
+                et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                </p>
+        </div>
+
+        {% include "website/footer.html" %}
+    </body>
+</html>

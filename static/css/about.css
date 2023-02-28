@@ -1,0 +1,53 @@
+body {
+    font-family: Helvetica55;
+    font-weight: 500;
+}
+
+/* MENU */
+.open-menu .menu-links a:nth-child(4) {
+    height: 65px;
+}
+
+.open-menu .menu-links a:nth-child(4)::after {
+    content: "";
+    width: 45%;
+    height: 0px;
+    display: block;
+    border-bottom: 12px solid white;
+    position: relative;
+    top: -64%;
+    left: -18%;
+}
+
+
+/* ABOUT-US HERO */
+.about-hero {
+    margin-top: 140px;
+}
+
+.about-hero h1{
+    text-transform: uppercase;
+    font-size: 160px;
+    font-weight: 500;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+}
+
+.about-hero img {
+    width: 100%;
+    position: relative;
+    top: -230px;
+}
+
+
+/* ABOUT DESCRIPTION */
+.about-description {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+}
+

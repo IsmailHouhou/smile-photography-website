@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmileProd - Product X</title>
+        <link rel="stylesheet" href="{% static 'css/product.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="../scripts/jquery-3.6.3.min.js"></script>
+        <script>
+            $(function(){
+              $("#header").load("../header.html");
+              $("#footer").load("../footer.html");
+            });
+        </script>
+    </head>
+    <body>
+        {% include 'website/header.html' %}
+        <!-- <div id="header"></div> -->
+
+        <div class="container">
+            <div class="description">
+                <h2>Description</h2>
+                <div class="full-frame">
+                    <h4>Full-frame creativity</h4>
+                    <p>Realize beautiful 4K imagery with the
+                        creative freedom made possible by
+                        oversampling a huge high resolution
+                        full-frame sensor. Capture every detail
+                        from the scene with shallow depth of
+                        field and stunning bokeh for a truly
+                        cinematic look. 15+ stops of dynamic
+                        range and Dual Base ISO enable you
+                        to capture every nuance, from subtle
+                        shadow detail to specular highlights,
+                        with an immaculate color palette.</p>
+                </div>
+                <h4>Key Features</h4>
+                <p>-6K Full-Frame Exmor R CMOS Sensor <br>
+                    -15 Stops of Dynamic Range, Dynamic HDR<br>
+                    -DCI 4K and UHD 4K up to 60p<br>
+                    -Quad Full HD 120p Raw with XDCA-FX9 Unit<br></p>
+            </div>
+            <div class="images">
+                <div class="slides fade">
+                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
+                    <hr style="left: -37%;">
+                    <div class="slide-menu">
+                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                        <span>1/4</span>
+                        <a class="next" onclick="plusSlides(1)">Next</a>
+                    </div>
+                </div>
+                <div class="slides fade">
+                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
+                    <hr style="left: -13%;">
+                    <div class="slide-menu">
+                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                        <span>2/4</span>
+                        <a class="next" onclick="plusSlides(1)">Next</a>
+                    </div>
+                </div>
+                <div class="slides fade">
+                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
+                    <hr style="left: 12%;">
+                    <div class="slide-menu">
+                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                        <span>3/4</span>
+                        <a class="next" onclick="plusSlides(1)">Next</a>
+                    </div>
+                </div>
+                <div class="slides fade">
+                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
+                    <hr style="left: 37%;">
+                    <div class="slide-menu">
+                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                        <span>4/4</span>
+                        <a class="next" onclick="plusSlides(1)">Next</a>
+                    </div>
+                </div>
+            </div>
+            <div class="prices">
+                <h2>Sony FX9</h2>
+                <p style="margin-bottom: 40px">FX9, Sony’s full-frame 6K sensor
+                    camera with Fast Hybrid AF, Dual
+                    Base ISO, and S-Cinetone™ color
+                    science.</p>
+                <h4>FIND YOUR DEAL</h4>
+                <form id="reserve-form" action="" method="POST">
+                    <div class="radio-button-container">
+                        <label class="custom-radio-button">
+                            <input type="radio" id="1day" name="duration" value="1 Day" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="1day">1 Day</label>
+                    </div>
+                    <div class="radio-button-container">
+                        <label class="custom-radio-button">
+                            <input type="radio" id="3days" name="duration" value="3 Days">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="3days">3 Days</label>
+                    </div>
+                    <div class="radio-button-container">
+                        <label class="custom-radio-button">
+                            <input type="radio" id="7days" name="duration" value="7 Days">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="7days">7 Days</label>
+                    </div>
+                    <div class="radio-button-container">
+                        <label class="custom-radio-button">
+                            <input type="radio" id="10days" name="duration" value="10 Days">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="10days">10 Days</label>
+                    </div>
+
+
+                    <h4 style="margin-bottom: 40px;">3000.00 MAD</h4>
+
+                    <p>ADD TO BAG</p>
+                    <!-- <button type="submit">reserve</button> -->
+                    <a href="{% url 'reserve' product.id %}">RESERVE</a>
+                </form>
+            </div>
+        </div>
+
+        {% include 'website/footer.html' %}
+        <!-- <div id="footer"></div> -->
+
+        <script src="{% static 'js/product.js' %}"></script>
+    </body>
+</html>

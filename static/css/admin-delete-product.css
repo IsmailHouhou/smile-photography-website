@@ -1,0 +1,52 @@
+#full-page {
+    height: 100%;
+}
+
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#delete-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#delete-confirmation form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#delete-confirmation form input[type='submit'] {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    font-family: Helvetica35;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 50px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#delete-confirmation form a {
+    text-decoration: none;
+    font-family: Helvetica55;
+    font-weight: 500;
+    padding: 10px 45px;
+    margin-right: 20px;
+    border-radius: 5px;
+
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+}

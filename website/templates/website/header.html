@@ -1,0 +1,43 @@
+{% load static %}
+<header>
+    <ul>
+        <li><a href="{% url 'home' %}"><img id="logo_text" src="{% static 'images/01. Graphics/Fichier 1mdpi.png' %}" alt="Logo_text"></a></li>
+        <li><img id="logo_icon" src="{% static 'images/01. Graphics/Fichier 27mdpi.png' %}" alt="Logo_icon"></li>
+        <li>
+            <a id="menu" onclick="showMenu()">
+                <img src="{% static 'images/01. Graphics/Fichier 2mdpi.png' %}" alt="Menu">
+                <p>Menu</p>
+            </a>
+        </li>
+    </ul>
+</header>
+
+<div class="open-menu fade-menu">
+    <header>
+        <ul>
+            <li><a href="{% url 'home' %}"><img id="logo_text" src="{% static 'images/01. Graphics/Fichier 1mdpi.png' %}" alt="Logo_text"></a></li>
+            <li><img id="logo_icon" src="{% static 'images/01. Graphics/Fichier 27mdpi.png' %}" alt="Logo_icon"></li>
+            <li >
+                <a id="menu" onclick="hideMenu()">
+                    <img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Menu">
+                </a>
+            </li>
+        </ul>
+    </header>
+    
+    <div class="menu-links">
+        <a href="{% url 'services' %}">services</a>
+        <a href="{% url 'works' %}">works</a>
+        <a href="{% url 'materials' %}">materials</a>
+        <a href="{% url 'about' %}">about</a>
+        <a href="{% url 'contact' %}">contact</a>
+    </div>
+
+    <div class="menu-footer">
+        <a href="#">Youtube</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+    </div>
+</div>
+
+<script src="{% static 'js/header.js' %}"></script>

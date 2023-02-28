@@ -1,0 +1,82 @@
+{% extends 'website/sidebar-header.html' %}
+{% load static %}
+ 
+{% block title %}
+<title>Admin - Add video</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin-add-video.css' %}">
+{% endblock %}
+
+{% block page-content %}
+<div id="title">
+    <img src="{% static 'images/01. Graphics/1x/Fichier 18mdpi.png' %}" alt="">
+    <h2>Add New Video</h2>
+</div>
+
+<form id="video-form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div id="file-upload-row">
+        <div class="file-upload-container">
+            <label for="">Upload Video</label>
+            <div id="video-upload-container">
+                <div id="video-upload-label">Faites glisser et déposez des images ou
+                    importer des images depuis votre ordinateur
+                </div>
+                <input type="file" id="video-upload" name="video" accept="video/mp4, video/x-m4v, video/*">
+            </div>
+            <div id="video-list"></div>
+        </div>
+        <div class="file-upload-container">
+            <label for="">Upload Thumbnail</label>
+            <div id="thumbnail-upload-container">
+                <div id="thumbnail-upload-label">Faites glisser et déposez des images ou
+                    importer des images depuis votre ordinateur
+                </div>
+                <input type="file" id="thumbnail-upload" name="thumbnail" accept="image/*">
+            </div>
+            <div id="thumbnail-list"></div>
+        </div>
+    </div>
+    <div id="text-input-container">
+        <div class="form-row">
+            <div class="form-item">
+                <label for="video-title">Title</label>
+                <input type="text" name="title" id="video-title">
+            </div>
+            <div class="form-item">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="Category1">Category 1</option>
+                    <option value="Category2">Category 2</option>
+                    <option value="Comecials">Comecials</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="client-name">Client Name</label>
+                <input type="text" name="client" id="client-name" >
+            </div>
+            <div class="form-item">
+                <label for="year">Year</label>
+                <input type="text" name="year" id="year" pattern="^[0-9]+$" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-item">
+                <label for="video-description">Video Description <span style="color: #F00;">*</span></label>
+                <textarea type="text" name="description" id="video-description" rows="1"></textarea>
+                <label id="max">Maximum 50 words</label>
+            </div>
+        </div>
+    </div>
+    <button type="submit">ADD</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/upload-video.js' %}"></script>
+{% endblock %}
