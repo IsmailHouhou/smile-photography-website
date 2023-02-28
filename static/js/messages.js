@@ -16,6 +16,6 @@ function readMessage(event, clientName) {
         messageDemo[i].className = messageDemo[i].className.replace(" active", "")
     }
     
-    document.getElementById(clientName).style.display = "block";
+    document.getElementById(clientName).style.display = "flex";
     event.currentTarget.className += " active";
 }

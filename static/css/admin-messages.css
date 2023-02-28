@@ -1,11 +1,3 @@
-html, body {
-    /* height: auto; */
-}
-
-#full-page {
-    height: 100%;
-}
-
 #inbox-container {
     margin: 30px 30px 0 30px;
     display: flex;
@@ -87,6 +79,9 @@ html, body {
 /* RIGHT CONTAINER */
 .right-container {
     width: calc(100% - 300px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* CLIENT NAME */
