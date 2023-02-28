@@ -83,6 +83,7 @@ def login(request):
 def dashboard(request):
     return render(request, 'website/pages/admin-dashboard.html')
 
+# ADMIN SIDE
 
 # PRODUCT
 def add_product(request):

@@ -44,7 +44,8 @@
 }
 
 #address {
-    width: 54%;
+    overflow-wrap: break-word;
+    width: 55%;
 }
 
 #address p{

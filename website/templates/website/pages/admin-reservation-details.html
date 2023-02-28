@@ -44,10 +44,17 @@
                 <h4>Client Type</h4>
                 <p>{{reservation.client_status}}</p>
             </div>
-            <div class="info-item">
-                <h4>Company Name</h4>
-                <p>{{reservation.client_company}}</p>
-            </div>
+            {% if reservation.client_status == 'business' %}
+                <div class="info-item">
+                    <h4>Company Name</h4>
+                    <p>{{reservation.client_business}}</p>
+                </div>
+            {% else %}
+                <div class="info-item" style="visibility: hidden;">
+                    <h4>Company Name</h4>
+                    <p>{{reservation.client_company}}</p>
+                </div>
+            {% endif %}
         </div>
         <div class="info-row">
             <div class="info-item">
@@ -55,10 +62,17 @@
                 <p>{{reservation.phoneNumber}}</p>
             </div>
             <div id="address" class="info-item">
+                <h4>Email</h4>
+                <p>{{reservation.client_email}}</p>
+            </div>
+        </div>
+        <div class="info-row">
+            <div id="address" class="info-item">
                 <h4>Address</h4>
                 <p>{{reservation.client_address}}</p>
             </div>
         </div>
+
     </div>
 
     <div class="total-container">
