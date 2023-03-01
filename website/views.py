@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 from .models import *
@@ -128,6 +129,13 @@ def delete_product(request, pk):
 
 def products_list(request):
     products = Product.objects.all().order_by('name')
+    search_contains_query = request.GET.get('search')
+
+    if search_contains_query != '' and search_contains_query is not None:
+        products = products.filter(
+            Q(name__icontains=search_contains_query) |
+            Q(category__icontains=search_contains_query)
+        )
 
     context = {'products':products}
     return render(request, 'website/pages/admin-products-list.html', context)
@@ -165,6 +173,16 @@ def videos_list(request):
     videos = Video.objects.all()
     showreel = Showreel.objects.first()
 
+    search_contains_query = request.GET.get('search')
+
+    if search_contains_query != '' and search_contains_query is not None:
+        filter_arg = Q(title__icontains=search_contains_query) | Q(category__icontains=search_contains_query) | Q(client__icontains=search_contains_query)
+        try:
+            filter_arg |= Q(year=int(search_contains_query))
+        except ValueError:
+            pass
+        videos = videos.filter(filter_arg) 
+
     context = {'videos':videos, 'showreel':showreel}
     return render(request, 'website/pages/admin-videos-list.html', context)
 
@@ -184,8 +202,16 @@ def update_showreel(request):
 # RESERVATION
 def reservations_list(request):
     reservations = Reservation.objects.all()
-    # clients = Client.objects.all()
     products = Product.objects.all()
+
+    search_contains_query = request.GET.get('search')
+
+    if search_contains_query != '' and search_contains_query is not None:
+        reservations = reservations.filter(
+            Q(client_name__icontains=search_contains_query) |
+            Q(product__name__icontains=search_contains_query) |
+            Q(product__category__icontains=search_contains_query)
+        )
 
     context = {'reservations': reservations, 'products': products}
     return render(request, 'website/pages/admin-reservations-list.html', context)

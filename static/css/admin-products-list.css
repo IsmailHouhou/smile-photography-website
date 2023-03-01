@@ -15,17 +15,8 @@
     width: 55%;
 }
 
-#delete-hide {
-    margin-right: 12%;
-    display: flex;
-}
-
-#delete-hide img {
-    width: 20px;
-    height: 18px;
-    object-fit: contain;
-    margin-right: 15px;
-    cursor: pointer;
+#left-search-container form {
+    width: 100%;
 }
 
 #search-input {
@@ -40,14 +31,24 @@
     color: #ccc;
 }
 
-#search-bar input {
+#search-bar input[type="text"] {
     box-sizing: border-box;
     outline: none;
-    width: 100%;
+    width: 80%;
     padding: 10px 10px 10px 40px;
     border: 0;
     border-radius: 20px;
     background-color: #fff;
+    margin-right: 20px;
+}
+
+#left-search-container form input[type="submit"] {
+    width: 20%;
+    border: 0;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+    cursor: pointer;
 }
 
 #search-bar input::placeholder {

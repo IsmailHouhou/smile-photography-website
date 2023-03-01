@@ -18,16 +18,20 @@
 
 <div id="search-bar">
     <div id="left-search-container">
-        <div id="search-input">
-            <i class="fa fa-search"></i>
-            <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
-        </div>
+        <form action="" method="GET">
+            {% csrf_token %}
+            <div id="search-input">
+                <i class="fa fa-search"></i>
+                <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
+                <input type="submit" value="SEARCH">
+            </div>
+        </form>
     </div>
 </div>
 
 <table id="list-table">
     <tr>
-        <th>Name</th>
+        <th>Client</th>
         <th>Materials</th>
         <th>Category</th>
         <th>Duration</th>

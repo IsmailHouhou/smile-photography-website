@@ -32,7 +32,7 @@ class Video(models.Model):
     VIDEO_CATEGORIES = (
         ('Category1', 'Category1'),
         ('Category2', 'Category2'),
-        ('Comecials', 'Comecials'),
+        ('Comercials', 'Comercials'),
     )
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=VIDEO_CATEGORIES)
