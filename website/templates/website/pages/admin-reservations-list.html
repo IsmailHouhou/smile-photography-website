@@ -41,19 +41,33 @@
         <th></th>
     </tr>
     {% for reservation in reservations %}
-        <tr>
-            <!-- <td onclick="window.location='/order-details';" style="cursor: pointer;">{{reservation.client}}</td> -->
-            <td><a href="{% url 'reservation-details' reservation.id %}">{{reservation.client_name}}</a></td>
-            <td>{{reservation.product}}</td>
-            <td>{{reservation.product.category}}</td>
-            <td>{{reservation.duration}}</td>
-            <td>{{reservation.start_date|date:"d/m/Y"}}</td>
-            <td>{{reservation.end_date|date:"d/m/Y"}}</td>
-            <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
-            <td class="modify">
-                <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
-            </td>
-        </tr>
+        {% if reservation.read == 'False' %}
+            <tr style="background-color: rgba(253, 206, 2, 0.4)">
+                <td><a href="{% url 'reservation-details' reservation.id %}">{{reservation.client_name}}</a></td>
+                <td>{{reservation.product}}</td>
+                <td>{{reservation.product.category}}</td>
+                <td>{{reservation.duration}}</td>
+                <td>{{reservation.start_date|date:"d/m/Y"}}</td>
+                <td>{{reservation.end_date|date:"d/m/Y"}}</td>
+                <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
+                <td class="modify">
+                    <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td><a href="{% url 'reservation-details' reservation.id %}">{{reservation.client_name}}</a></td>
+                <td>{{reservation.product}}</td>
+                <td>{{reservation.product.category}}</td>
+                <td>{{reservation.duration}}</td>
+                <td>{{reservation.start_date|date:"d/m/Y"}}</td>
+                <td>{{reservation.end_date|date:"d/m/Y"}}</td>
+                <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
+                <td class="modify">
+                    <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 </table>
 

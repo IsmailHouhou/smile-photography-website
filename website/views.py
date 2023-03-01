@@ -49,6 +49,7 @@ def reserve(request, pk): # WORKING VERSION
             client_prefix = request.POST['client_prefix'],
             client_phone = request.POST['client_phone'],
             client_status = request.POST['client_status'],
+            read = 'False',
             start_date = request.POST['start_date'],
             end_date = request.POST['end_date']
         )
@@ -215,7 +216,7 @@ def reservations_list(request):
     products = Product.objects.all()
 
     # PAGINATION
-    p = Paginator(Reservation.objects.all(), 1)
+    p = Paginator(Reservation.objects.all(), 2)
     page = request.GET.get('page')
     reservations = p.get_page(page)
 
@@ -233,6 +234,8 @@ def reservations_list(request):
 
 def reservation_details(request, pk):
     reservation = Reservation.objects.get(id=pk)
+    reservation.read = 'True'
+    reservation.save()
 
     context = {'reservation':reservation}
     return render(request, 'website/pages/admin-reservation-details.html', context)
@@ -249,9 +252,6 @@ def delete_reservation(request, pk):
 # MESSAGE
 def messages(request):
     messages = Message.objects.all().order_by('-date_sent')
-    # clients = Client.objects.all()
 
     context = {'messages':messages}
     return render(request, 'website/pages/admin-messages.html', context)
-
-# def send_message(request):

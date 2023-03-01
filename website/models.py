@@ -93,6 +93,7 @@ class Reservation(models.Model):
     client_phone = models.IntegerField(null=True, blank=True)
     client_status = models.CharField(max_length=20, choices=STATUS, null=True, blank=True)
 
+    read = models.CharField(max_length=10, null=True, blank=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     order_date = models.DateField(auto_now_add=True, auto_now=False, null=True) # FIX FORMAT TYPE OF DATE
