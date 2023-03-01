@@ -1,8 +1,9 @@
-let slideIndex = 1;
+var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    slideIndex += n;
+    showSlides(slideIndex);
 }
 
 function currentSlide(n) {
@@ -22,4 +23,10 @@ function showSlides(n) {
         slides[i].style.display = "none";
     }
     slides[slideIndex-1].style.display = "block";
+
+    // image counter
+    counter = document.getElementById("image-count");
+    parts = counter.innerText.split("/");
+    parts[0] = slideIndex;
+    counter.innerText = parts.join("/");
 }

@@ -22,19 +22,29 @@ def services(request):
 def works(request):
     videos = Video.objects.all()
 
+    category = request.GET.get('category')
+
+    if category:
+        videos = videos.filter(category=category)
+
     context = {'videos':videos}
     return render(request, 'website/pages/works.html', context)
 
 def materials(request):
     products = Product.objects.all()
 
+    category = request.GET.get('category')
+
+    if category:
+        products = products.filter(category=category)
+
     context = {'products':products}
     return render(request, 'website/pages/materials.html', context)
 
 def product(request, pk):
     product = Product.objects.get(id=pk)
-
-    context = {'product':product}
+    image_count = product.productimage_set.all().count()
+    context = {'product':product, 'image_count':image_count}
     return render(request, 'website/pages/product.html', context)
 
 def reserve(request, pk): # WORKING VERSION
@@ -75,8 +85,8 @@ def contact(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
             # messages.success(request, 'Your message has been sent')
+            return redirect('/')
 
     return render(request, 'website/pages/contact.html')
 

@@ -18,10 +18,10 @@
         <div class="works-catalog">
             <div class="filter-menu">
                 <ul>
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Commercials</a></li>
-                    <li><a href="#">Documentary</a></li>
-                    <li><a href="#">Brands</a></li>
+                    <li><a href="{% url 'works' %}">All</a></li>
+                    <li><a href="?category=Commercials">Commercials</a></li>
+                    <li><a href="?category=Category1">Category 1</a></li> <!-- Documentary -->
+                    <li><a href="?category=Category2">Category 2</a></li> <!-- Brands -->
                     <li><a href="#">Others</a></li>
                 </ul>
             </div>
@@ -50,10 +50,6 @@
                     </div>
                 </div>
             {% endfor %}
-            <!-- MAYBE REMOVE VIEW ALL AND DON'T INCLUDE PAGING -->
-            <!-- <div class="view-all">
-                <a href="#">View All</a>
-            </div> -->
         </div>
         
         {% include "website/lets-talk.html" %}

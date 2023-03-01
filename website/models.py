@@ -7,11 +7,12 @@ class Product(models.Model):
         ('Category1', 'Category1'),
         ('Category2', 'Category2'),
         ('Camera Video', 'Camera Video'),
-    )  
+    )
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=PRODUCT_CATEGORIES)
     summary = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    features = models.TextField(null=True, blank=True)
     price_day_1 = models.IntegerField()
     price_day_3 = models.IntegerField()
     price_day_10 = models.IntegerField()
@@ -32,7 +33,7 @@ class Video(models.Model):
     VIDEO_CATEGORIES = (
         ('Category1', 'Category1'),
         ('Category2', 'Category2'),
-        ('Comercials', 'Comercials'),
+        ('Commercials', 'Commercials'),
     )
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=VIDEO_CATEGORIES)
