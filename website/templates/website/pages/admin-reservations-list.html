@@ -57,17 +57,35 @@
     {% endfor %}
 </table>
 
-<div class="pagination">
-    <p>1 to 10 of 79 pages</p>
-    <div class="pagination-right-container">
-        <p>The page you are on</p>
-        <select name="page" id="page">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-        <a href="">&lt;</a>
-        <a href="">&gt;</a>
+<!-- PAGINATION -->
+{% if reservations.number == None %}
+
+{% else %}
+    <div class="pagination">
+        <!-- <p>1 to 2 of {{reservations.paginator.num_pages}} pages</p> -->
+        <div class="pagination-right-container">
+            <p>You are on page</p>
+            {% if reservations.has_previous %}
+                <a href="?page=1">&lt;&lt;</a>
+                <a href="?page={{reservations.previous_page_number}}">&lt;</a>
+            {% else %}
+                <a href="" style="pointer-events: none; color: #bbb">&lt;&lt;</a>
+                <a href="" style="pointer-events: none; color: #bbb">&lt;</a>
+            {% endif %}
+            <p style="padding: 0px 10px 0px 5px; margin-right: 0">{{reservations.number}}</p>
+            <!-- <select name="page" id="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select> -->
+            {% if reservations.has_next %}
+                <a href="?page={{reservations.next_page_number}}">&gt;</a>
+                <a href="?page={{reservations.paginator.num_pages}}">&gt;&gt;</a>
+            {% else %}
+                <a href="" style="pointer-events: none; color: #bbb">&gt;</a>
+                <a href="" style="pointer-events: none; color: #bbb">&gt;&gt;</a>
+            {% endif %}
+        </div>
     </div>
-</div>
+{% endif %}
 {% endblock %}

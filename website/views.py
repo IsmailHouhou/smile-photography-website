@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 from .models import *
@@ -128,11 +129,16 @@ def delete_product(request, pk):
     return render(request, 'website/pages/admin-delete-product.html', context)
 
 def products_list(request):
-    products = Product.objects.all().order_by('name')
+    # PAGINATION
+    p = Paginator(Product.objects.all(), 2)
+    page = request.GET.get('page')
+    products = p.get_page(page)
+
+    # SEARCH BAR
     search_contains_query = request.GET.get('search')
 
     if search_contains_query != '' and search_contains_query is not None:
-        products = products.filter(
+        products = Product.objects.all().filter(
             Q(name__icontains=search_contains_query) |
             Q(category__icontains=search_contains_query)
         )
@@ -170,8 +176,13 @@ def delete_video(request, pk):
     return render(request, 'website/pages/admin-delete-video.html', context)
 
 def videos_list(request):
-    videos = Video.objects.all()
+    # videos = Video.objects.all()
     showreel = Showreel.objects.first()
+
+    # PAGINATION
+    p = Paginator(Video.objects.all(), 2)
+    page = request.GET.get('page')
+    videos = p.get_page(page)
 
     search_contains_query = request.GET.get('search')
 
@@ -181,7 +192,7 @@ def videos_list(request):
             filter_arg |= Q(year=int(search_contains_query))
         except ValueError:
             pass
-        videos = videos.filter(filter_arg) 
+        videos = Video.objects.all().filter(filter_arg) 
 
     context = {'videos':videos, 'showreel':showreel}
     return render(request, 'website/pages/admin-videos-list.html', context)
@@ -201,13 +212,17 @@ def update_showreel(request):
 
 # RESERVATION
 def reservations_list(request):
-    reservations = Reservation.objects.all()
     products = Product.objects.all()
+
+    # PAGINATION
+    p = Paginator(Reservation.objects.all(), 1)
+    page = request.GET.get('page')
+    reservations = p.get_page(page)
 
     search_contains_query = request.GET.get('search')
 
     if search_contains_query != '' and search_contains_query is not None:
-        reservations = reservations.filter(
+        reservations = Reservation.objects.all().filter(
             Q(client_name__icontains=search_contains_query) |
             Q(product__name__icontains=search_contains_query) |
             Q(product__category__icontains=search_contains_query)
