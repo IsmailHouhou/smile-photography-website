@@ -50,31 +50,26 @@ function closeWork(id) {
 }
 
 // works onhover
+function showImage(event, id) {
+    var image = document.getElementById('thumbnail-image-'+id);
+    image.style.left = event.clientX + "px";
+    image.style.top = event.clientY + "px";
+    image.style.display = "block";
+}
 
-
-function showThumbnail(id) {
-    thumbnail_image = document.getElementById('thumbnail-'+id);
-    thumbnail_name = document.getElementById('title-'+id);
-    works = document.getElementsByClassName('works');
-
-    thumbnail_name.addEventListener("mouseover", () => {
-        thumbnail_image.style.display = "block";
-        works[0].style.position = "relative";
-      });
-      
-      thumbnail_name.addEventListener("mouseleave", () => {
-        thumbnail_image.style.display = "";
+function activateImage(id) {
+    div = document.getElementsByClassName('thumbnail');
+    div.forEach(element => {
+        element.style.display = "none";
     });
+    thumbnail = document.getElementById('thumbnail-image-'+id);
+    thumbnail.style.display = 'block';
+    thumbnail.parentElement.style.display = 'block';
+}
 
-    window.addEventListener("mousemove", (e) => {
-        let x = e.offsetX,
-          y = e.offsetY;
-      
-        if (e.target == thumbnail_name) {
-            thumbnail_image.style.left = `${x}px`;
-            thumbnail_image.style.top = `${y}px`;
-        } 
-    });
+function hideImage(id) {
+    var image = document.getElementById('thumbnail-image-'+id);
+    image.style.display = "none";
 }
 
 // SERVICES CAROUSEL

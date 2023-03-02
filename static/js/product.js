@@ -1,3 +1,4 @@
+// IMAGE SLIDESHOW
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -29,4 +30,9 @@ function showSlides(n) {
     parts = counter.innerText.split("/");
     parts[0] = slideIndex;
     counter.innerText = parts.join("/");
+}
+
+// PRICE PREVIEW
+setPrice(p) {
+    alert(p.value);
 }

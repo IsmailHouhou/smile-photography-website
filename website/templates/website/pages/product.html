@@ -32,33 +32,6 @@
                     <span id="image-count">1/{{image_count}}</span>
                     <a class="next" onclick="plusSlides(1)">Next</a>
                 </div>
-                <!-- <div class="slides fade">
-                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
-                    <hr style="left: -13%;">
-                    <div class="slide-menu">
-                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
-                        <span>2/4</span>
-                        <a class="next" onclick="plusSlides(1)">Next</a>
-                    </div>
-                </div>
-                <div class="slides fade">
-                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
-                    <hr style="left: 12%;">
-                    <div class="slide-menu">
-                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
-                        <span>3/4</span>
-                        <a class="next" onclick="plusSlides(1)">Next</a>
-                    </div>
-                </div>
-                <div class="slides fade">
-                    <img src="{% static 'images/02. Photos/Fichier 26mdpi.png' %}" alt="">
-                    <hr style="left: 37%;">
-                    <div class="slide-menu">
-                        <a class="prev" onclick="plusSlides(-1)">Prev</a>
-                        <span>4/4</span>
-                        <a class="next" onclick="plusSlides(1)">Next</a>
-                    </div>
-                </div> -->
             </div>
             <div class="prices">
                 <h2>{{product.name}}</h2>
@@ -67,7 +40,7 @@
                 <form id="reserve-form" action="" method="POST">
                     <div class="radio-button-container">
                         <label class="custom-radio-button">
-                            <input type="radio" id="1day" name="duration" value="1 Day" checked>
+                            <input type="radio" id="1day" name="duration" value="1 Day" onchange="setPrice(this)" checked>
                             <span class="checkmark"></span>
                         </label>
                         <label for="1day">1 Day</label>

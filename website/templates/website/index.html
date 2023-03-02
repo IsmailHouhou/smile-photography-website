@@ -5,13 +5,6 @@
         <title>SmileProd - Home</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
-        <script> 
-            $(function(){
-              $("#header").load("header.html"); 
-              $("#footer").load("footer.html"); 
-              $("#lets-talk").load("lets-talk.html");
-            });
-        </script> 
     </head>
     <body>
         <!-- HEADER -->
@@ -135,14 +128,14 @@
                     <th> </th>
                 </tr>
                 {% for video in videos %}
-                    <tr>
-                        <td onmouseover="showThumbnail('{{video.id}}')" id="title-{{video.id}}">{{video.title}}</td>
+                    <tr class="thumbnail-line">
+                        <td onmouseover="activateImage('{{video.id}}')" onmousemove="showImage(event, '{{video.id}}')" onmouseout="hideImage('{{video.id}}')" id="title-{{video.id}}">{{video.title}}</td>
                         <td>{{video.category}}</td>
-                        <td><a onclick="showWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
+                        <td class="thumbnail-td" ><a onclick="showWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
+                        <div  class="thumbnail">
+                            <img id="thumbnail-image-{{video.id}}" src="{{video.thumbnail.url}}" alt="thumbnail">
+                        </div>
                     </tr>
-                    <div  class="thumbnail">
-                        <img id="thumbnail-{{video.id}}" src="{{video.thumbnail.url}}" alt="thumbnail">
-                    </div>
                     <div class="work-container fade" id="work-{{video.id}}">
                         <a onclick="closeWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close work"></a>
                         <div id="work-image-container">
