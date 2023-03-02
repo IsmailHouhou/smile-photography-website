@@ -334,6 +334,7 @@ li a {
 /* FEATURED WORKS */
 .works {
     margin: 150px 0;
+    /* position: relative; */
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 .works table {
@@ -357,6 +358,10 @@ li a {
     color: #b3b3b3;
 }
 
+.works table td a{
+    cursor: pointer;
+}
+
 .works table td:nth-child(3) {
     width: 40px;
 }
@@ -365,18 +370,71 @@ li a {
     width: 12px;
 }
 
-.works div {
+.works #view-all {
     width: 100%;
     text-align: center;
     margin-top: 40px;
 }
 
-.works div a {
+.works #view-all a {
     text-decoration: none;
     color: #b3b3b3;
     font-family: Helvetica55;
-    /* font-weight: 300; */
     font-size: 18px;
+}
+
+.thumbnail {
+    /* position: relative; */
+}
+
+.thumbnail img {
+    display: none;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    position: absolute;
+    transform: translate(-50%, 140%);
+    pointer-events: none;
+}
+
+td.video-title:hover ~ .thumbnail img {
+    display: block;
+    position: absolute;
+    z-index: 2;
+}
+
+
+.work-container {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:2;
+    background-color: #000;
+    transition: 0.5s;
+}
+
+.work-container a{
+    cursor: pointer;
+}
+
+.work-container a>img{
+    width: 30px;
+    float: right;
+    margin: 20px 40px 0 0;
+}
+
+#work-image-container video{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* EQUIPMENT RENTAL */

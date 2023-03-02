@@ -59,6 +59,7 @@
         <script src="{% static 'js/header.js' %}"></script>
         <!-- END OF HEADER -->
         
+        <!-- HERO -->
         <div class="hero">
             <div class="text-layout">
                 <h1>we <br> look into <br> creative</h1>
@@ -78,6 +79,7 @@
             </div>
         </div>
 
+        <!-- CLIENTS -->
         <div class="clients">
             <h2>Our Happy Clients</h2>
             <div>
@@ -89,6 +91,7 @@
             </div>
         </div>
 
+        <!-- SERVICES -->
         <div class="services">
             <div id="service-header" class="child">
                 <h1 class="section-header">our core</h1>
@@ -120,6 +123,8 @@
             </div>
         </div>
 
+        <!-- WORKS -->
+        <!-- HOVER EFFECT STILL ISN'T WORKING PROPERLY -->
         <div class="works">
             <h1 class="section-header">featured</h1>
             <h1 class="section-header" style="margin-left: 140px">works</h1>
@@ -130,19 +135,28 @@
                     <th> </th>
                 </tr>
                 {% for video in videos %}
-                <!-- ADD A LINK TO GO TO FROM THE VIDEO -->
                     <tr>
-                        <td>{{video.title}}</td>
+                        <td onmouseover="showThumbnail('{{video.id}}')" id="title-{{video.id}}">{{video.title}}</td>
                         <td>{{video.category}}</td>
-                        <td><a href=""><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
+                        <td><a onclick="showWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
                     </tr>
+                    <div  class="thumbnail">
+                        <img id="thumbnail-{{video.id}}" src="{{video.thumbnail.url}}" alt="thumbnail">
+                    </div>
+                    <div class="work-container fade" id="work-{{video.id}}">
+                        <a onclick="closeWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close work"></a>
+                        <div id="work-image-container">
+                            <video id="video-{{video.id}}" src="{{video.video.url}}" controls></video>
+                        </div>
+                    </div>
                 {% endfor %}
             </table>
-            <div>
+            <div id="view-all">
                 <a href="{% url 'works' %}">View All</a>
             </div>
         </div>
 
+        <!-- MATERIALS -->
         <div class="equipment">
             <h1 class="section-header">equipment</h1>
             <h1 class="section-header" style="margin-left: 180px">rental</h1>
@@ -183,6 +197,7 @@
             </div>
         </div>
 
+        <!-- CONTACT -->
         <div class="project-in-mind">
             <h1 class="page-header">have</h1>
             <h1 class="page-header" style="margin-left: 150px">a project</h1>
