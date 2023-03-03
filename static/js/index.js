@@ -52,20 +52,28 @@ function closeWork(id) {
 // works onhover
 function showImage(event, id) {
     var image = document.getElementById('thumbnail-image-'+id);
+    // parentEl = image.parentElement;
+    // parentEl.addEventListener('mousemove', function(event) {
+    //     var x = event.pageX;
+    //     var y = event.pageY;
+    //     image.style.left=x+"px";
+    //     image.style.top=y+"px";
+    //     console.log('Cursor position relative to parent: x=' + x + ', y=' + y);
+    // });
     image.style.left = event.clientX + "px";
     image.style.top = event.clientY + "px";
     image.style.display = "block";
 }
 
-function activateImage(id) {
-    div = document.getElementsByClassName('thumbnail');
-    div.forEach(element => {
-        element.style.display = "none";
-    });
-    thumbnail = document.getElementById('thumbnail-image-'+id);
-    thumbnail.style.display = 'block';
-    thumbnail.parentElement.style.display = 'block';
-}
+// function activateImage(id) {
+//     thumbnail_container = document.getElementsByClassName('thumbnail');
+//     thumbnail_container.forEach(element => {
+//         element.style.display = "none";
+//     });
+//     thumbnail = document.getElementById('thumbnail-image-'+id);
+//     thumbnail.style.display = 'block';
+//     thumbnail.parentElement.style.display = 'block';
+// }
 
 function hideImage(id) {
     var image = document.getElementById('thumbnail-image-'+id);

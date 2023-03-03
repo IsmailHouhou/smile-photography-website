@@ -33,6 +33,10 @@
                     <a class="next" onclick="plusSlides(1)">Next</a>
                 </div>
             </div>
+
+
+
+
             <div class="prices">
                 <h2>{{product.name}}</h2>
                 <p style="margin-bottom: 40px">{{product.summary}}</p>
@@ -40,35 +44,35 @@
                 <form id="reserve-form" action="" method="POST">
                     <div class="radio-button-container">
                         <label class="custom-radio-button">
-                            <input type="radio" id="1day" name="duration" value="1 Day" onchange="setPrice(this)" checked>
+                            <input type="radio" id="1day" name="duration" value="1 Day" onclick="setPrice()" checked>
                             <span class="checkmark"></span>
                         </label>
                         <label for="1day">1 Day</label>
                     </div>
                     <div class="radio-button-container">
                         <label class="custom-radio-button">
-                            <input type="radio" id="3days" name="duration" value="3 Days">
+                            <input type="radio" id="3days" name="duration" value="3 Days" onclick="setPrice()" >
                             <span class="checkmark"></span>
                         </label>
                         <label for="3days">3 Days</label>
                     </div>
                     <div class="radio-button-container">
                         <label class="custom-radio-button">
-                            <input type="radio" id="7days" name="duration" value="7 Days">
+                            <input type="radio" id="7days" name="duration" value="7 Days" onclick="setPrice()" >
                             <span class="checkmark"></span>
                         </label>
                         <label for="7days">7 Days</label>
                     </div>
                     <div class="radio-button-container">
                         <label class="custom-radio-button">
-                            <input type="radio" id="10days" name="duration" value="10 Days">
+                            <input type="radio" id="10days" name="duration" value="10 Days" onclick="setPrice()" >
                             <span class="checkmark"></span>
                         </label>
                         <label for="10days">10 Days</label>
                     </div>
 
 
-                    <h4 style="margin-bottom: 40px;">3000.00 MAD</h4>
+                    <h4 id="price" style="margin-bottom: 40px;">{{product.price_day_1}} MAD</h4>
 
                     <p>ADD TO BAG</p>
                     <!-- <button type="submit">reserve</button> -->
@@ -78,8 +82,31 @@
         </div>
 
         {% include 'website/footer.html' %}
-        <!-- <div id="footer"></div> -->
 
-        <script src="{% static 'js/product.js' %}"></script>
+        <script src="{% static 'js/product.js' %}"></script>      
+
+        <!-- PRICE SCRIPT -->
+        <script>
+            var text = document.getElementById('price');
+            var day1Price = {{ product.price_day_1 }};
+            text.innerHTML = (day1Price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD";
+
+            function setPrice() {
+                selectedValue = document.querySelector('input[name="duration"]:checked').value;
+                var day3Price = {{ product.price_day_3 }};
+                var day10Price = {{ product.price_day_10 }};
+
+                if (selectedValue == "1 Day") {
+                    price = day1Price;
+                } else if (selectedValue == "3 Days") {
+                    price = day3Price * 3;
+                } else if (selectedValue == "7 Days") {
+                    price = day3Price * 7;
+                } else if (selectedValue == "10 Days") {
+                    price = day10Price * 10;
+                }
+                text.innerHTML = (price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD";
+            }
+        </script>
     </body>
 </html>

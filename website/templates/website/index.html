@@ -129,10 +129,10 @@
                 </tr>
                 {% for video in videos %}
                     <tr class="thumbnail-line">
-                        <td onmouseover="activateImage('{{video.id}}')" onmousemove="showImage(event, '{{video.id}}')" onmouseout="hideImage('{{video.id}}')" id="title-{{video.id}}">{{video.title}}</td>
+                        <td onmousemove="showImage(event, '{{video.id}}')" onmouseout="hideImage('{{video.id}}')" id="title-{{video.id}}">{{video.title}}</td>
                         <td>{{video.category}}</td>
                         <td class="thumbnail-td" ><a onclick="showWork('{{video.id}}')"><img src="{% static 'images/01. Graphics/Fichier 10mdpi.png' %}" alt="more"></a></td>
-                        <div  class="thumbnail">
+                        <div class="thumbnail">
                             <img id="thumbnail-image-{{video.id}}" src="{{video.thumbnail.url}}" alt="thumbnail">
                         </div>
                     </tr>

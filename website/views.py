@@ -44,7 +44,10 @@ def materials(request):
 def product(request, pk):
     product = Product.objects.get(id=pk)
     image_count = product.productimage_set.all().count()
-    context = {'product':product, 'image_count':image_count}
+    price_day_3 = product.price_day_3
+    price_day_10 = product.price_day_10
+
+    context = {'product':product, 'image_count':image_count, 'price_day_3':price_day_3, 'price_day_10':price_day_10}
     return render(request, 'website/pages/product.html', context)
 
 def reserve(request, pk): # WORKING VERSION
@@ -64,15 +67,8 @@ def reserve(request, pk): # WORKING VERSION
             end_date = request.POST['end_date']
         )
         return redirect('/')
-        
-    today = datetime.datetime.now()
-    start = today.strftime('%Y-%m-%d')
-    tomorrow = today + datetime.timedelta(days=1)
-    end = tomorrow.strftime('%Y-%m-%d')
-    next_year = today + datetime.timedelta(days=365)
-    max = next_year.strftime('%Y-%m-%d')
 
-    context = {'product':product, 'start':start, 'end':end, 'max':max}
+    context = {'product':product}
     return render(request, 'website/pages/reserve.html', context)
 
 

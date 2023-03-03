@@ -69,6 +69,18 @@ form .radio-container label {
     font-size: 20px;
 }
 
+#student-message {
+    visibility: hidden;
+    margin: -50px 0 50px 30px;
+    font-family: Helvetica45;
+    font-size: 15px;
+    color: #b3b3b3;
+}
+
+#business-container {
+    visibility: hidden;
+}
+
 
 /* TEXT INPUT */
 #reserve-form .text-input-container label {
@@ -101,22 +113,16 @@ form .radio-container label {
     width: 46%;
 }
 
-#reserve-form .text-input-container #phone-row {
-    display: flex;
+#phone-row .form-cell:nth-child(1) {
     width: 50%;
 }
 
-#reserve-form .text-input-container #phone-row {
-    display: flex;
-    width: 50%;
+#phone-row .form-cell:nth-child(2) {
+    width: 10%;
 }
 
-#reserve-form .text-input-container #phone-row #prefix {
-    width: 20%;
-}
-
-#reserve-form .text-input-container #phone-row .form-cell {
-    width: 80%;
+#phone-row .form-cell:nth-child(3) {
+    width: 36%;
 }
 
  /* To remove styling from autofill */

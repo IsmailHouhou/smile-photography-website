@@ -383,7 +383,7 @@ li a {
 }
 
 .thumbnail {
-    position: absolute;
+    position: relative;
 }
 
 .thumbnail img {
@@ -391,8 +391,8 @@ li a {
     width: 300px;
     height: 200px;
     object-fit: cover;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    transform: translate(0%, 0%);
     pointer-events: none;
 }
 
