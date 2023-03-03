@@ -116,11 +116,18 @@ def add_product(request):
 def update_product(request, pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
+    image_form = ProductImageForm()
     if request.method == 'POST':
-        # images = request.FILES.getlist('images')
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
+        form = ProductForm(request.POST, instance=product)
+        image_form = ProductImageForm(request.POST, request.FILES)
+        images = request.FILES.getlist('image')
+        if form.is_valid() and image_form.is_valid():
+            f = form.save(commit=False)
+            f.save()
+            for product_image in product.productimage_set.all():
+                product_image.delete()
+            for image in images:
+                ProductImage.objects.create(product=f, image=image)
             return redirect('/products-list')
 
     context = {'product':product}
