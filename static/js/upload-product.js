@@ -28,10 +28,6 @@ fileUploadContainer.addEventListener("drop", (e) => {
   updateFileList();
 });
 
-fileUploadButton.addEventListener("click", () => {
-  fileUpload.click();
-});
-
 function updateFileList(){
   fileList.innerHTML = "";
   for (let i = 0; i < fileUpload.files.length; i++) {

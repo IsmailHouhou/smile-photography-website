@@ -73,7 +73,7 @@ form .right-container {
     text-align: center;
 }
 
-#file-upload-label {
+#file-upload-text {
     font-size: 15px;
     color: #999;
     margin-bottom: 20px;
@@ -87,14 +87,31 @@ form .right-container {
     display: none;
 }
 
-#file-upload-button {
-    display: none;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
+#file-upload-label {
+    display: inline;
+    background-color: #e4ae3a;
+    color: #fff;
+    padding: 8px 30px;
+    font-size: 11px;
+    border-radius: 5px;
+}
+
+#file-upload-label {
+    display: inline;
+    background-color: #e4ae3a;
+    color: #fff;
+    padding: 8px 30px;
+    font-size: 11px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+}
+
+#file-upload-label img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: -10px;
+    top: 3px;
 }
 
 #file-list {

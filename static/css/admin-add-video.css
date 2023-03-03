@@ -69,7 +69,7 @@ form button {
 
 /* VIDEO UPLOAD */
 #file-upload-row {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -84,10 +84,28 @@ form button {
     text-align: center;
 }
 
-#video-upload-label {
+#video-upload-text {
     font-size: 15px;
     color: #999;
     margin-bottom: 20px;
+}
+
+#video-upload-label {
+    display: inline;
+    background-color: #e4ae3a;
+    color: #fff;
+    padding: 8px 30px;
+    font-size: 11px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#video-upload-label img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: -10px;
+    top: 3px;
 }
 
 #video-upload-container.dragover {
@@ -96,16 +114,6 @@ form button {
 
 #video-upload {
     display: none;
-}
-
-#video-upload-button {
-    display: none;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
 }
 
 #video-list {
@@ -131,10 +139,28 @@ form button {
     text-align: center;
 }
 
-#thumbnail-upload-label {
+#thumbnail-upload-text {
     font-size: 15px;
     color: #999;
     margin-bottom: 20px;
+}
+
+#thumbnail-upload-label {
+    display: inline;
+    background-color: #e4ae3a;
+    color: #fff;
+    padding: 8px 30px;
+    font-size: 11px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#thumbnail-upload-label img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: -10px;
+    top: 3px;
 }
 
 #thumbnail-upload-container.dragover {
@@ -143,16 +169,6 @@ form button {
 
 #thumbnail-upload {
     display: none;
-}
-
-#thumbnail-upload-button {
-    display: none;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
 }
 
 #thumbnail-list {

@@ -75,11 +75,11 @@
     </div>
     <div class="right-container">
         <div id="file-upload-container">
-            <div id="file-upload-label">Faites glisser et déposez des images ou
+            <div id="file-upload-text">Faites glisser et déposez des images ou
                 importer des images depuis votre ordinateur
             </div>
-            <input type="file" id="file-upload" name="image" accept="image/*" multiple>
-            <button id="file-upload-button">Upload</button>
+            <label id="file-upload-label" for="file-upload"><img src="{% static 'images/01. Graphics\1x\Fichier 23mdpi.png' %}" alt="upload"> Upload</label>
+            <input type="file" title=" " id="file-upload" name="image" accept="image/*" multiple />
         </div>
         <div id="file-list"></div>
     </div>

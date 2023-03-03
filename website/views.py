@@ -221,7 +221,7 @@ def update_showreel(request):
             return redirect('/videos-list')
         
     context = {}
-    return render(request, 'website/pages/admin-update-thumbnail.html', context)
+    return render(request, 'website/pages/admin-update-showreel.html', context)
 
 
 # RESERVATION
