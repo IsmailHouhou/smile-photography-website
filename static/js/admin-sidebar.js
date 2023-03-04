@@ -1,4 +1,8 @@
-// NEEDS FIXING
+// FORM MESSAGES
+$("#success-message").fadeOut(3000);
+$("#warning-message").fadeOut(3000);
+
+// DROP DOWN IN SIDEBAR
 function showProductsMenu() {
     menu = document.getElementById("products-menu");
     icon = document.getElementById("fa-icon-product");

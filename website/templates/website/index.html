@@ -52,7 +52,11 @@
         
         <script src="{% static 'js/header.js' %}"></script>
         <!-- END OF HEADER -->
-        
+        {% for message in messages %}
+            <span id="success-message">
+                {{message}}
+            </span>
+        {% endfor %}
         <!-- HERO -->
         <div class="hero">
             <div class="text-layout">

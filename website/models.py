@@ -40,7 +40,7 @@ class Video(models.Model):
     client = models.CharField(max_length=200, null=True)
     year = models.IntegerField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    thumbnail = models.ImageField(null=True, blank=True)
+    thumbnail = models.ImageField()
     video = models.FileField(null=True, blank=True)
 
     def __str__(self):

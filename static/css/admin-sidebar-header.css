@@ -18,6 +18,27 @@ body {
     min-height: 100vh;
 }
 
+/* FORM MESSAGE */
+#success-message {
+    width: 88%;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(175 239 191 / 70%);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#warning-message {
+    width: 88%;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgba(247, 68, 56, 0.7);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
 /* SIDEBAR */
 #sidebar-header {
     background-color: #000;

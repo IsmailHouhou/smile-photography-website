@@ -11,6 +11,13 @@
 {% endblock %}
 
 {% block page-content %}
+
+{% for message in messages %}
+    <span  {% if message.tags %} id="{{message.tags}}-message" {% endif %}>
+        {{message}}
+    </span>
+{% endfor %}
+
 <div id="title">
     <img src="{% static 'images/01. Graphics/1x/Fichier 17mdpi.png' %}" alt="">
     <h2>List of Reservations</h2>

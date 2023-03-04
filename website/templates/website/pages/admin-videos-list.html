@@ -11,6 +11,13 @@
 {% endblock %}
 
 {% block page-content %}
+
+{% for message in messages %}
+    <span  {% if message.tags %} id="{{message.tags}}-message" {% endif %}>
+        {{message}}
+    </span>
+{% endfor %}
+
 <div id="title">
     <img src="{% static 'images/01. Graphics/1x/Fichier 18mdpi.png' %}" alt="">
     <h2>Videos List</h2>
@@ -19,7 +26,6 @@
 <div id="showreel-container">
     <h3>Showreel</h3>
     <div id="showreel">
-        <!-- <img src="{% static 'images/02. Photos/Fichier 13mdpi.png' %}" alt=""> -->
         <img src="{{showreel.thumbnail.url}}" alt="">
         <div id="showreel-info">
             <h2>Showreel Title</h2>

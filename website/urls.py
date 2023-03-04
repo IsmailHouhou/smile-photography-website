@@ -31,6 +31,6 @@ urlpatterns = [
     path('reservation-details/<int:pk>/', views.reservation_details, name='reservation-details'),
     path('detele-reservation/<int:pk>/', views.delete_reservation, name='delete-reservation'),
 
-    path('messages/', views.messages, name='messages'),
+    path('messages/', views.messages_page, name='messages'),
     path('update-message-read/', views.update_message_read, name='update-message-read'),
 ]

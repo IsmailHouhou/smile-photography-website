@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.contrib import messages
 
 # Create your views here.
 from .models import *
@@ -69,6 +69,7 @@ def reserve(request, pk): # WORKING VERSION
             start_date = request.POST['start_date'],
             end_date = request.POST['end_date']
         )
+        messages.success(request, 'Your reservation has been sent')
         return redirect('/')
 
     context = {'product':product}
@@ -84,7 +85,7 @@ def contact(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            # messages.success(request, 'Your message has been sent')
+            messages.success(request, 'Your message has been sent')
             return redirect('/')
 
     return render(request, 'website/pages/contact.html')
@@ -114,6 +115,19 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
+# RESERVATION
+def notification():
+    if Reservation.objects.all().filter(read='False'):
+        reservation_notif = 'True'
+    else:
+        reservation_notif = 'False'
+    if Message.objects.all().filter(read='False'):
+        message_notif = 'True'
+    else:
+        message_notif = 'False'
+
+    return reservation_notif, message_notif
+
 # DASHBOARD
 @login_required(login_url='login')
 def dashboard(request):
@@ -136,6 +150,7 @@ def add_product(request):
             f.save()
             for image in images:
                 ProductImage.objects.create(product=f, image=image)
+            messages.success(request, 'Your product has been added')
             return redirect('/products-list')
 
     reservation_notif, message_notif = notification()
@@ -154,10 +169,12 @@ def update_product(request, pk):
         if form.is_valid() and image_form.is_valid():
             f = form.save(commit=False)
             f.save()
-            for product_image in product.productimage_set.all():
-                product_image.delete()
-            for image in images:
-                ProductImage.objects.create(product=f, image=image)
+            if images:
+                for product_image in product.productimage_set.all():
+                    product_image.delete()
+                for image in images:
+                    ProductImage.objects.create(product=f, image=image)
+            messages.success(request, 'Your product has been updated')
             return redirect('/products-list')
 
     reservation_notif, message_notif = notification()
@@ -169,6 +186,7 @@ def delete_product(request, pk):
     product = Product.objects.get(id=pk)
     if request.method == 'POST':
         product.delete()
+        messages.warning(request, 'Your product has been deleted')
         return redirect('/products-list')
 
     reservation_notif, message_notif = notification()
@@ -212,7 +230,7 @@ def add_video(request):
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            # messages.success(request, 'video added with success')
+            messages.success(request, 'Your video has been updated')
             return redirect('/videos-list')
 
     reservation_notif, message_notif = notification()
@@ -224,6 +242,7 @@ def delete_video(request, pk):
     video = Video.objects.get(id=pk)
     if request.method == 'POST':
         video.delete()
+        messages.warning(request, 'Your video has been deleted')
         return redirect('/videos-list')
 
     reservation_notif, message_notif = notification()
@@ -232,7 +251,6 @@ def delete_video(request, pk):
 
 @login_required(login_url='login')
 def videos_list(request):
-    # videos = Video.objects.all()
     showreel = Showreel.objects.first()
 
     # PAGINATION
@@ -262,25 +280,12 @@ def update_showreel(request):
         form = ShowreelForm(request.POST, request.FILES, instance=showreel)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your showreel has been updated')
             return redirect('/videos-list')
         
     reservation_notif, message_notif = notification()
     context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-update-showreel.html', context)
-
-
-# RESERVATION
-def notification():
-    if Reservation.objects.all().filter(read='False'):
-        reservation_notif = 'True'
-    else:
-        reservation_notif = 'False'
-    if Message.objects.all().filter(read='False'):
-        message_notif = 'True'
-    else:
-        message_notif = 'False'
-
-    return reservation_notif, message_notif
 
 @login_required(login_url='login')
 def reservations_list(request):
@@ -319,6 +324,7 @@ def delete_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
     if request.method == 'POST':
         reservation.delete()
+        messages.warning(request, 'The selected reservation has been deleted')
         return redirect('/reservations-list')
 
     reservation_notif, message_notif = notification()
@@ -327,7 +333,7 @@ def delete_reservation(request, pk):
 
 # MESSAGE
 @login_required(login_url='login')
-def messages(request):
+def messages_page(request):
     messages = Message.objects.all().order_by('-date_time_sent')
 
     reservation_notif, message_notif = notification()

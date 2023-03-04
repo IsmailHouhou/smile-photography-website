@@ -32,6 +32,14 @@ body {
     overflow-x: hidden;
 }
 
+#success-message {
+    width: 98%;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(175 239 191 / 70%);
+    border-radius: 10px;
+}
+
 /* NAVBAR */
 ul {
     display: flex;
