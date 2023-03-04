@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 # Create your views here.
 from .models import *
@@ -86,15 +89,38 @@ def contact(request):
 
     return render(request, 'website/pages/contact.html')
 
-def login(request):
-    return render(request, 'website/pages/admin-login.html')
-
-def dashboard(request):
-    return render(request, 'website/pages/admin-dashboard.html')
-
 # ADMIN SIDE
+# LOGIN
+def login_page(request):
+    message = ''
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+        else:
+            message = 'Username or Password incorrect'
+
+    context = {'message':message}
+    return render(request, 'website/pages/admin-login.html', context)
+
+# LOGOUT
+def logout_user(request):
+    logout(request)
+    return redirect('/')
+
+# DASHBOARD
+@login_required(login_url='login')
+def dashboard(request):
+    notif = notification()
+
+    context = {'notif':notif}
+    return render(request, 'website/pages/admin-dashboard.html', context)
 
 # PRODUCT
+@login_required(login_url='login')
 def add_product(request):
     form = ProductForm()
     image_form = ProductImageForm()
@@ -109,10 +135,11 @@ def add_product(request):
                 ProductImage.objects.create(product=f, image=image)
             return redirect('/products-list')
 
-    context = {}
+    notif = notification()
+    context = {'notif':notif}
     return render(request, 'website/pages/admin-add-product.html', context)
 
-# NEED TO UPDATE THIS VIEW TO DEAL WITH UPDATING MULTIPLE IMAGES
+@login_required(login_url='login')
 def update_product(request, pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
@@ -130,18 +157,22 @@ def update_product(request, pk):
                 ProductImage.objects.create(product=f, image=image)
             return redirect('/products-list')
 
-    context = {'product':product}
+    notif = notification()
+    context = {'product':product, 'notif':notif}
     return render(request, 'website/pages/admin-update-product.html', context)
 
+@login_required(login_url='login')
 def delete_product(request, pk):
     product = Product.objects.get(id=pk)
     if request.method == 'POST':
         product.delete()
         return redirect('/products-list')
 
-    context = {'product':product}
+    notif = notification()
+    context = {'product':product, 'notif':notif}
     return render(request, 'website/pages/admin-delete-product.html', context)
 
+@login_required(login_url='login')
 def products_list(request):
     # PAGINATION
     p = Paginator(Product.objects.all(), 2)
@@ -157,17 +188,21 @@ def products_list(request):
             Q(category__icontains=search_contains_query)
         )
 
-    context = {'products':products}
+    notif = notification()
+    context = {'products':products, 'notif':notif}
     return render(request, 'website/pages/admin-products-list.html', context)
 
+@login_required(login_url='login')
 def product_info(request, pk):
     product = Product.objects.get(id=pk)
 
-    context = {'product':product}
+    notif = notification()
+    context = {'product':product, 'notif':notif}
     return render(request, 'website/pages/admin-product-info.html', context)
 
 
 # VIDEO
+@login_required(login_url='login')
 def add_video(request):
     form = VideoForm()
     if request.method == 'POST':
@@ -177,18 +212,22 @@ def add_video(request):
             # messages.success(request, 'video added with success')
             return redirect('/videos-list')
 
-    context = {}
+    notif = notification()
+    context = {'notif':notif}
     return render(request, 'website/pages/admin-add-video.html', context)
 
+@login_required(login_url='login')
 def delete_video(request, pk):
     video = Video.objects.get(id=pk)
     if request.method == 'POST':
         video.delete()
         return redirect('/videos-list')
 
-    context = {'video':video}
+    notif = notification()
+    context = {'video':video, 'notif':notif}
     return render(request, 'website/pages/admin-delete-video.html', context)
 
+@login_required(login_url='login')
 def videos_list(request):
     # videos = Video.objects.all()
     showreel = Showreel.objects.first()
@@ -208,9 +247,11 @@ def videos_list(request):
             pass
         videos = Video.objects.all().filter(filter_arg) 
 
-    context = {'videos':videos, 'showreel':showreel}
+    notif = notification()
+    context = {'videos':videos, 'showreel':showreel, 'notif':notif}
     return render(request, 'website/pages/admin-videos-list.html', context)
 
+@login_required(login_url='login')
 def update_showreel(request):
     showreel = Showreel.objects.first()
     form = ShowreelForm(instance=showreel)
@@ -220,11 +261,19 @@ def update_showreel(request):
             form.save()
             return redirect('/videos-list')
         
-    context = {}
+    notif = notification()
+    context = {'notif':notif}
     return render(request, 'website/pages/admin-update-showreel.html', context)
 
 
 # RESERVATION
+def notification():
+    if Reservation.objects.all().filter(read='False'):
+        return 'True'
+    else:
+        return 'False'
+
+@login_required(login_url='login')
 def reservations_list(request):
     products = Product.objects.all()
 
@@ -242,29 +291,45 @@ def reservations_list(request):
             Q(product__category__icontains=search_contains_query)
         )
 
-    context = {'reservations': reservations, 'products': products}
+    notif = notification()
+    context = {'reservations': reservations, 'products': products, 'notif':notif}
     return render(request, 'website/pages/admin-reservations-list.html', context)
 
+@login_required(login_url='login')
 def reservation_details(request, pk):
     reservation = Reservation.objects.get(id=pk)
     reservation.read = 'True'
     reservation.save()
 
-    context = {'reservation':reservation}
+    notif = notification()
+    context = {'reservation':reservation, 'notif':notif}
     return render(request, 'website/pages/admin-reservation-details.html', context)
 
+@login_required(login_url='login')
 def delete_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
     if request.method == 'POST':
         reservation.delete()
         return redirect('/reservations-list')
 
-    context = {'reservation':reservation}
+    notif = notification()
+    context = {'reservation':reservation, 'notif':notif}
     return render(request, 'website/pages/admin-delete-reservation.html', context)
 
 # MESSAGE
+@login_required(login_url='login')
 def messages(request):
     messages = Message.objects.all().order_by('-date_sent')
 
-    context = {'messages':messages}
+    notif = notification()
+    context = {'messages':messages, 'notif':notif}
     return render(request, 'website/pages/admin-messages.html', context)
+
+def update_message_read(request) :
+    if request.method == 'POST':
+        message_id = request.GET.get('message_id')
+        message = Message.objects.get(id=message_id)
+        message.read = 'True'
+        message.save()
+
+        return JsonResponse({'read': message.read})

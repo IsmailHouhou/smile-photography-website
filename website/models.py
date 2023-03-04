@@ -64,6 +64,7 @@ class Message(models.Model):
     client_prefix = models.CharField(max_length=5, null=True, blank=True)
     client_phone = models.IntegerField(null=True, blank=True)
 
+    read = models.CharField(max_length=10, null=True, blank=True)
     message = models.TextField(null=True, blank=True)
     date_sent = models.DateField(auto_now_add=True, auto_now=False, null=True)
 
@@ -74,7 +75,7 @@ class Message(models.Model):
         return self.message[:20]
     
     def phoneNumber(self):
-        return self.client_prefix + str(self.client_phone)[1:]
+        return self.client_prefix + str(self.client_phone)
     
 
 class Reservation(models.Model):

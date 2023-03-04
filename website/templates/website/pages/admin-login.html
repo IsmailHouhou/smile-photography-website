@@ -12,15 +12,17 @@
 <body>
     <div class="container">
         <img src="{% static 'images/01. Graphics/1x/Logo Login mdpi.png'%}" alt="">
-        <form action="" method="post">
+        <form action="" method="POST">
+            {% csrf_token %}
             <div class="form-row">
-                <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" id="pseudo" placeholder="Enter your pseudo" required>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username" required>
             </div>
             <div class="form-row">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="********" required>
             </div>
+            <p>{{message}}</p>
             <button type="submit">Login</button>
         </form>
     </div>

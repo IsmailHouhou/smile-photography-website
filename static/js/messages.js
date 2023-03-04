@@ -19,3 +19,24 @@ function readMessage(event, clientName) {
     document.getElementById(clientName).style.display = "flex";
     event.currentTarget.className += " active";
 }
+
+function updateRead(id) {
+    $.ajax({
+        url: "{% url 'update-message-read' %}?message_id=" + id,
+        type: "POST",
+        data: {
+          csrfmiddlewaretoken: "{{ csrf_token }}",
+        },
+        success: function(response, id) {
+          // If the request was successful, update the page content
+        //   $("#my-model-field").text(response.new_value);
+            read = response.read;
+            document.getElementById('message-'+id).style.backgroundColor = '#e8f6fa';
+        },
+        error: function(xhr, status, error) {
+          // If the request failed, log the error
+          console.log(error);
+        }
+      });
+
+}

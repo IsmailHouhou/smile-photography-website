@@ -28,22 +28,22 @@ function showVideosMenu() {
 }
 
 // COLORED ICON FOR SELECTED PAGE
-navigation = document.getElementsByClassName('nav-row');
+navigation = document.querySelectorAll('.nav-row img');
 [].forEach.call(navigation, function(nav) {
     nav.style.filter = 'grayscale(100%)';
 });
-navigationDropdown = document.getElementsByClassName('nav-row-dropdown');
+navigationDropdown = document.querySelectorAll('.nav-row-dropdown img');
 [].forEach.call(navigationDropdown, function(nav) {
     nav.style.filter = 'grayscale(100%)';
 });
 if (page == 'dashboard') {
-    reservation = document.getElementById('dashboard');
+    reservation = document.querySelector('#dashboard img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#dashboard a');
     reservationText.style.color = '#fff';
 } else if (page == 'add-product') {
     showProductsMenu();
-    reservation = document.getElementById('products');
+    reservation = document.querySelector('#products img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#products a');
     reservationText.style.color = '#fff';
@@ -51,7 +51,7 @@ if (page == 'dashboard') {
     reservationText2.style.color = '#fff';
 } else if (page == 'products-list') {
     showProductsMenu();
-    reservation = document.getElementById('products');
+    reservation = document.querySelector('#products img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#products a');
     reservationText.style.color = '#fff';
@@ -59,7 +59,7 @@ if (page == 'dashboard') {
     reservationText3.style.color = '#fff';
 } else if (page == 'add-video') {
     showVideosMenu();
-    reservation = document.getElementById('videos');
+    reservation = document.querySelector('#videos img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#videos a');
     reservationText.style.color = '#fff';
@@ -67,19 +67,19 @@ if (page == 'dashboard') {
     reservationText3.style.color = '#fff';
 } else if (page == 'videos-list') {
     showVideosMenu();
-    reservation = document.getElementById('videos');
+    reservation = document.querySelector('#videos img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#videos a');
     reservationText.style.color = '#fff';
     reservationText3 = document.querySelector('#videos-menu a:nth-child(2)');
     reservationText3.style.color = '#fff';
 } else if (page == 'reservations-list') {
-    reservation = document.getElementById('reservations');
+    reservation = document.querySelector('#reservations img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#reservations a');
     reservationText.style.color = '#fff';
 } else if (page == 'messages') {
-    reservation = document.getElementById('messages');
+    reservation = document.querySelector('#messages img');
     reservation.style.filter = 'grayscale(0%)';
     reservationText = document.querySelector('#messages a');
     reservationText.style.color = '#fff';
