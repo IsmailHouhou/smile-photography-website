@@ -24,7 +24,7 @@
             {% for message in messages %}
                 {% if message.read == 'False' %}
                     <div style="background-color: rgba(253, 206, 2, 0.4);" id="message-{{message.id}}" class="message-demo" onclick="readMessage(event, '{{message.id}}'); updateRead('{{message.id}}');">
-                        <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
+                        <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                         <div class="message-info">
                             <div class="message-header">
                                 <h4>{{message.client_name}}</h4>
@@ -35,7 +35,7 @@
                     </div>
                 {% else %}
                     <div class="message-demo" onclick="readMessage(event, '{{message.id}}')">
-                        <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
+                        <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                         <div class="message-info">
                             <div class="message-header">
                                 <h4>{{message.client_name}}</h4>
@@ -51,11 +51,11 @@
     {% for message in messages %}
         <div class="right-container" id="{{message.id}}">
             <div id="client-name">
-                <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
+                <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                 <h4>{{message.client_name}}</h4>
             </div>
             <div id="message-text">
-                <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
+                <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                 <div id="message-area">
                     <h4>Contacts Form</h4>
                     <div class="form-details">
