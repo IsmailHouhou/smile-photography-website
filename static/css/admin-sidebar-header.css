@@ -118,7 +118,7 @@ body {
 .notif::after {
     display: inline-block;
     content: '';
-    background-color: yellow;
+    background-color: #fdce02;
     width: 5px;
     height: 5px;
     border-radius: 50%;

@@ -55,7 +55,7 @@
                     </div>
                     <div id="messages" class="nav-row">
                         <img src="{% static 'images/01. Graphics/1x/Fichier 14mdpi.png' %}" alt="">
-                        <a href="{% url 'messages' %}">Messages</a>
+                        <a id="messages-link" href="{% url 'messages' %}">Messages</a>
                     </div>
                     <div id="logout" class="nav-row">
                         <img src="{% static 'images/01. Graphics/1x/Fichier 24mdpi.png' %}" alt="">
@@ -87,9 +87,15 @@
     <script src="{% static 'js/admin-sidebar.js' %}"></script>
     <script>  
         reservationLink = document.getElementById('reservations-link')
-        var notif = '{{notif}}';
-        if (notif == 'True') {
+        var reservation_notif = '{{reservation_notif}}';
+        if (reservation_notif == 'True') {
             reservationLink.classList.add('notif');
+        }
+        
+        messageLink = document.getElementById('messages-link')
+        var message_notif = '{{message_notif}}';
+        if (message_notif == 'True') {
+            messageLink.classList.add('notif');
         }
     </script>
 </body>

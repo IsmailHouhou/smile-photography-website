@@ -92,19 +92,22 @@ def contact(request):
 # ADMIN SIDE
 # LOGIN
 def login_page(request):
-    message = ''
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
-        else:
-            message = 'Username or Password incorrect'
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    else:
+        message = ''
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+            else:
+                message = 'Username or Password incorrect'
 
-    context = {'message':message}
-    return render(request, 'website/pages/admin-login.html', context)
+        context = {'message':message}
+        return render(request, 'website/pages/admin-login.html', context)
 
 # LOGOUT
 def logout_user(request):
@@ -114,9 +117,9 @@ def logout_user(request):
 # DASHBOARD
 @login_required(login_url='login')
 def dashboard(request):
-    notif = notification()
+    reservation_notif, message_notif = notification()
 
-    context = {'notif':notif}
+    context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-dashboard.html', context)
 
 # PRODUCT
@@ -135,8 +138,8 @@ def add_product(request):
                 ProductImage.objects.create(product=f, image=image)
             return redirect('/products-list')
 
-    notif = notification()
-    context = {'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-add-product.html', context)
 
 @login_required(login_url='login')
@@ -157,8 +160,8 @@ def update_product(request, pk):
                 ProductImage.objects.create(product=f, image=image)
             return redirect('/products-list')
 
-    notif = notification()
-    context = {'product':product, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'product':product, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-update-product.html', context)
 
 @login_required(login_url='login')
@@ -168,8 +171,8 @@ def delete_product(request, pk):
         product.delete()
         return redirect('/products-list')
 
-    notif = notification()
-    context = {'product':product, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'product':product, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-delete-product.html', context)
 
 @login_required(login_url='login')
@@ -188,16 +191,16 @@ def products_list(request):
             Q(category__icontains=search_contains_query)
         )
 
-    notif = notification()
-    context = {'products':products, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'products':products, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-products-list.html', context)
 
 @login_required(login_url='login')
 def product_info(request, pk):
     product = Product.objects.get(id=pk)
 
-    notif = notification()
-    context = {'product':product, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'product':product, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-product-info.html', context)
 
 
@@ -212,8 +215,8 @@ def add_video(request):
             # messages.success(request, 'video added with success')
             return redirect('/videos-list')
 
-    notif = notification()
-    context = {'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-add-video.html', context)
 
 @login_required(login_url='login')
@@ -223,8 +226,8 @@ def delete_video(request, pk):
         video.delete()
         return redirect('/videos-list')
 
-    notif = notification()
-    context = {'video':video, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'video':video, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-delete-video.html', context)
 
 @login_required(login_url='login')
@@ -247,8 +250,8 @@ def videos_list(request):
             pass
         videos = Video.objects.all().filter(filter_arg) 
 
-    notif = notification()
-    context = {'videos':videos, 'showreel':showreel, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'videos':videos, 'showreel':showreel, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-videos-list.html', context)
 
 @login_required(login_url='login')
@@ -261,17 +264,23 @@ def update_showreel(request):
             form.save()
             return redirect('/videos-list')
         
-    notif = notification()
-    context = {'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-update-showreel.html', context)
 
 
 # RESERVATION
 def notification():
     if Reservation.objects.all().filter(read='False'):
-        return 'True'
+        reservation_notif = 'True'
     else:
-        return 'False'
+        reservation_notif = 'False'
+    if Message.objects.all().filter(read='False'):
+        message_notif = 'True'
+    else:
+        message_notif = 'False'
+
+    return reservation_notif, message_notif
 
 @login_required(login_url='login')
 def reservations_list(request):
@@ -291,8 +300,8 @@ def reservations_list(request):
             Q(product__category__icontains=search_contains_query)
         )
 
-    notif = notification()
-    context = {'reservations': reservations, 'products': products, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservations': reservations, 'products': products, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-reservations-list.html', context)
 
 @login_required(login_url='login')
@@ -301,8 +310,8 @@ def reservation_details(request, pk):
     reservation.read = 'True'
     reservation.save()
 
-    notif = notification()
-    context = {'reservation':reservation, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservation':reservation, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-reservation-details.html', context)
 
 @login_required(login_url='login')
@@ -312,8 +321,8 @@ def delete_reservation(request, pk):
         reservation.delete()
         return redirect('/reservations-list')
 
-    notif = notification()
-    context = {'reservation':reservation, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'reservation':reservation, 'reservation_notif':reservation_notif,'message_notif':message_notif}
     return render(request, 'website/pages/admin-delete-reservation.html', context)
 
 # MESSAGE
@@ -321,8 +330,8 @@ def delete_reservation(request, pk):
 def messages(request):
     messages = Message.objects.all().order_by('-date_sent')
 
-    notif = notification()
-    context = {'messages':messages, 'notif':notif}
+    reservation_notif, message_notif = notification()
+    context = {'messages':messages, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-messages.html', context)
 
 def update_message_read(request) :
