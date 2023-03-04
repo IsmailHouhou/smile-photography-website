@@ -12,6 +12,11 @@
     width: 300px;
 }
 
+#received-messages {
+    overflow-y: auto;
+    height: 500px;
+}
+
 #inbox-title h3 {
     margin: 0;
     padding: 20px 30px;
