@@ -17,6 +17,7 @@
 
         <form id="message-form" action="" method="post">
             {% csrf_token %}
+            <input style="display: none;" type="text" name="read" value="False">
             <div class="form-row">
                 <div class="form-cell">
                     <label for="first-name">First Name</label>

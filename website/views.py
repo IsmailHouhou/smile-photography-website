@@ -328,7 +328,7 @@ def delete_reservation(request, pk):
 # MESSAGE
 @login_required(login_url='login')
 def messages(request):
-    messages = Message.objects.all().order_by('-date_sent')
+    messages = Message.objects.all().order_by('-date_time_sent')
 
     reservation_notif, message_notif = notification()
     context = {'messages':messages, 'reservation_notif':reservation_notif, 'message_notif':message_notif}

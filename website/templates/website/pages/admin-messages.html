@@ -23,13 +23,12 @@
         <div id="received-messages">
             {% for message in messages %}
                 {% if message.read == 'False' %}
-                    <!-- FUNCTION ONCLICK: updateRead('{{message.id}}'); -->
-                    <div style="background-color: rgba(253, 206, 2, 0.4);" id="message-{{message.id}}" class="message-demo" onclick="readMessage(event, '{{message.id}}');">
+                    <div style="background-color: rgba(253, 206, 2, 0.4);" id="message-{{message.id}}" class="message-demo" onclick="readMessage(event, '{{message.id}}'); updateRead('{{message.id}}');">
                         <img src="{% static 'images/02. Photos/Fichier 19mdpi.png' %}" alt="">
                         <div class="message-info">
                             <div class="message-header">
                                 <h4>{{message.client_name}}</h4>
-                                <h5>{{message.date_sent|date:"d/m/Y"}}</h5>
+                                <h5>{{message.date_time_sent|date:"d/m/Y H:i"}}</h5>
                             </div>
                             <p>{{message.shortMessage}}...</p>
                         </div>
@@ -40,7 +39,7 @@
                         <div class="message-info">
                             <div class="message-header">
                                 <h4>{{message.client_name}}</h4>
-                                <h5>{{message.date_sent|date:"d/m/Y"}}</h5>
+                                <h5>{{message.date_time_sent|date:"d/m/Y H:i"}}</h5>
                             </div>
                             <p>{{message.shortMessage}}...</p>
                         </div>
@@ -92,17 +91,14 @@
             url: "{% url 'update-message-read' %}?message_id=" + id,
             type: "POST",
             data: {
-            csrfmiddlewaretoken: "{{ csrf_token }}",
+                csrfmiddlewaretoken: "{{ csrf_token }}",
             },
-            success: function(response, id) {
-            // If the request was successful, update the page content
-            //   $("#my-model-field").text(response.new_value);
-                read = response.read;
-                document.getElementById('message-'+id).style.backgroundColor = '#e8f6fa';
+            success: function(response) {
+                message_id = "message-"+id;
+                $("#"+message_id).css('background-color', '#fff');
             },
             error: function(xhr, status, error) {
-            // If the request failed, log the error
-            console.log(error);
+                console.log(error);
             }
         });
     }
