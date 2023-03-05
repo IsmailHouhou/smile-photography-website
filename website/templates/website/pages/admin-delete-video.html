@@ -11,11 +11,11 @@
 
 {% block page-content %}
 <div id="delete-confirmation">
-    <h2>Are you sure you want to delete {{video.title}}?</h2>
+    <h2>Are you sure you want to delete <br> {{video.title}}?</h2>
     <form action="" method="POST">
         {% csrf_token %}
-        <a href="{% url 'videos-list' %}">Cancel</a>
-        <input type="submit" value="Delete" name="confirm">
+        <input type="submit" value="DELETE" name="confirm">
+        <a href="{% url 'videos-list' %}">CANCEL</a>
     </form>
 </div>
 {% endblock %}

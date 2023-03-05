@@ -14,10 +14,19 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 50%;
-    border: 1px solid black;
+    width: 55%;
+    border: 2px dashed #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #f2f2f9;
+}
+
+#delete-confirmation h2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #b2b2b2;
+    width: 60%;
+    margin: 25px 0;
+    line-height: 1.5;
 }
 
 #delete-confirmation form {
@@ -32,7 +41,7 @@
     font-family: Helvetica35;
     font-weight: 500;
     font-size: 16px;
-    padding: 10px 50px;
+    padding: 10px 45px;
     margin-right: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -42,10 +51,9 @@
     text-decoration: none;
     font-family: Helvetica55;
     font-weight: 500;
-    padding: 10px 45px;
+    padding: 10px 40px;
     margin-right: 20px;
     border-radius: 5px;
-
     border: 1px solid #000;
     background-color: #fff;
     color: #000;
