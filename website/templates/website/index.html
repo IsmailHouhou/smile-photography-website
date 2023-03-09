@@ -69,7 +69,7 @@
                     <p>Lorem ipsum dolor <br> sit amet,</p>
                 </div>
             </div>
-            <h1 id="angles" style="margin-left: 300px;">angles</h1>
+            <h1 id="angles">angles</h1>
             <img id="hero-image" src="{{showreel.thumbnail.url}}" alt="hero image">
             <!-- <video id="hero-image" src="{{showreel.video.url}}" autoplay playsinline></video> -->
             <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
@@ -97,7 +97,7 @@
         <div class="services">
             <div id="service-header" class="child">
                 <h1 class="section-header">our core</h1>
-                <h1 class="section-header" style="margin-left: 135px;">services</h1>
+                <h1 class="section-header">services</h1>
             </div>
             <div class="child service-carousel fade">
                 <h3>Lorem ipsum dolor sit amet</h3>
@@ -128,8 +128,10 @@
         <!-- WORKS -->
         <!-- HOVER EFFECT STILL ISN'T WORKING PROPERLY -->
         <div class="works">
-            <h1 class="section-header">featured</h1>
-            <h1 class="section-header" style="margin-left: 140px">works</h1>
+            <div id="works-header">
+                <h1 class="section-header">featured</h1>
+                <h1 class="section-header">works</h1>
+            </div>
             <table>
                 <tr>
                     <th style="width: 50%">Projects</th>
@@ -160,9 +162,11 @@
 
         <!-- MATERIALS -->
         <div class="equipment">
-            <h1 class="section-header">equipment</h1>
-            <h1 class="section-header" style="margin-left: 180px">rental</h1>
-            <div>
+            <div id="materials-header">
+                <h1 class="section-header">equipment</h1>
+                <h1 class="section-header">rental</h1>
+            </div>
+            <div id="materials-list">
                 <div class="container">
                     <img src="{% static 'images/02. Photos/Fichier 32mdpi.png' %}" alt="video camera">
                     <div class="description">
@@ -202,7 +206,7 @@
         <!-- CONTACT -->
         <div class="project-in-mind">
             <h1 class="page-header">have</h1>
-            <h1 class="page-header" style="margin-left: 150px">a project</h1>
+            <h1 id="a-project" class="page-header">a project</h1>
             <h1 class="page-header">in mind?</h1>
             <div>
                 <a href="contact">Let's talk</a>

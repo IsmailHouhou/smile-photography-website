@@ -169,6 +169,7 @@ li a {
 #angles {
     position: relative;
     z-index: 1;
+    margin-left: 300px;
 }
 
 /* Hero Image */
@@ -280,6 +281,10 @@ li a {
     line-height: 12px;
 }
 
+.services .section-header:nth-child(2) {
+    margin-left: 135px;
+}
+
 .services .service-carousel {
     width: 50%;
     flex-shrink: 1;
@@ -342,6 +347,10 @@ li a {
 /* FEATURED WORKS */
 .works {
     margin: 150px 0;
+}
+
+.works .section-header:nth-child(2) {
+    margin-left: 140px;
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 .works table {
@@ -443,7 +452,11 @@ li a {
     width: 100%;
 }
 
-.equipment>div {
+.equipment .section-header:nth-child(2) {
+    margin-left: 180px;
+}
+
+.equipment>#materials-list {
     display: flex;
     width: 100vw;
     margin-left: -100px;
@@ -514,6 +527,10 @@ li a {
     text-align: center;
 }
 
+#a-project {
+    margin-left: 150px;
+}
+
 .project-in-mind a {
     font-family: Helvetica55;
     font-size: 23px;
@@ -563,4 +580,184 @@ footer div img {
     width: 130px;
     position: relative;
     top: -13px;
+}
+
+
+
+/* RESPONSIVE FOR MOBILE */
+@media screen and (max-width: 600px) {
+    body {
+        margin: 0 20px;
+    }
+    /* HEADER */
+    #logo_icon {
+        display: none;
+    }
+    #menu p {
+        display: none;
+    }
+    #menu img {
+        margin-right: 0;
+    }
+    .open-menu header {
+        margin: 20px;
+    }
+    .open-menu header #menu img {
+        margin-right: 0;
+    }
+    .open-menu .menu-footer {
+        width: 80%;
+    }
+
+    /* HERO */
+    .hero h1 {
+        font-size: 45px;
+        line-height: 45px;
+    }
+    .hero .text-layout div {
+        width: 47%;
+        font-size: 12px;
+        height: 63px;
+    }
+    #angles {
+        margin-left: 109px;
+    }
+    .hero #hero-image {
+        top: -25px;
+    }
+    .hero #video-player-icon {
+        width: 63px;
+        top: 68%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* HAPPY CLIENTS */
+    .clients div {
+        margin: 70px 20px 0px 20px;
+        justify-content: space-between;
+    }
+    .clients div img {
+        width: 30%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    /* SERVICES */
+    .services {
+        flex-direction: column;
+        margin: 80px 0;
+    }
+    .services .section-header {
+        font-size: 45px;
+        line-height: 20px;
+    }
+    .services .section-header:nth-child(2) {
+        margin-left: 100px;
+    }
+    .services #service-header {
+        width: 83%;
+        margin: auto;
+    }
+    .services .service-carousel {
+        width: 80%;
+        margin: auto;
+    }
+    .services .service-carousel p {
+        margin: 30px 0;
+    }
+
+    /* WORKS */
+    .works {
+        margin: 100px 0;
+    }
+    .works #works-header {
+        width: 75%;
+        margin: auto;
+    }
+    .works .section-header {
+        font-size: 45px;
+        line-height: 20px;
+    }
+
+    .works .section-header:nth-child(2) {
+        margin-left: 120px;
+    }
+    .works table {
+        font-size: 16px;
+    }
+    .works table th {
+        font-size: 14px;
+    }
+    .works table .thumbnail-line td:nth-child(1) {
+        pointer-events: none;
+    }
+
+    /* MATERIALS */
+    .equipment #materials-header {
+        width: 82%;
+        margin: auto;
+    }
+    .equipment .section-header {
+        font-size: 45px;
+        line-height: 20px;
+    }
+    .equipment .section-header:nth-child(2) {
+        margin-left: 145px;
+    }
+    .equipment #materials-list {
+        flex-direction: column;
+        margin-top: 70px;
+        margin-left: -20px;
+    }
+    .equipment .container {
+        margin-bottom: -5px;
+    }
+
+    /* HAVE A PROJECT IN MIND */
+    .project-in-mind {
+        margin: 150px auto;
+        width: 88%;
+    }
+    .project-in-mind .page-header {
+        font-size: 52px;
+        line-height: 60px;
+        margin: 0;
+    }
+    #a-project {
+        margin-left: 50px;
+    }
+    .project-in-mind div {
+        margin-top: 80px;
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    footer>div  {
+        padding-left: 0;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100px;
+    }
+    footer>div img  {
+        position: static;
+    }
+    footer #media {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        order: 3;
+    }
+    footer hr {
+        margin-right: 0;
+    }
+    footer #copyright {
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    footer #copyright p:nth-child(2) {
+        margin-top: 0;
+    }
 }
