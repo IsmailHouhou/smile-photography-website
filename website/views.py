@@ -230,7 +230,7 @@ def add_video(request):
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your video has been updated')
+            messages.success(request, 'Your video has been added')
             return redirect('/videos-list')
 
     reservation_notif, message_notif = notification()

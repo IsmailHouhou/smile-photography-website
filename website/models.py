@@ -37,10 +37,10 @@ class Video(models.Model):
     )
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=VIDEO_CATEGORIES)
-    client = models.CharField(max_length=200, null=True)
+    client = models.CharField(max_length=200, null=True, blank=True)
     year = models.IntegerField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(null=True, blank=True)
     video = models.FileField(null=True, blank=True)
 
     def __str__(self):

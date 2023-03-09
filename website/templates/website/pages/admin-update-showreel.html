@@ -43,29 +43,10 @@
     </div>
     <button type="submit">UPDATE</button>
 </form>
-
-
-<!-- <div id="delete-confirmation">
-    <h2>UPDATE SHOWREEL</h2>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="upload-container">
-            <label for="thumbnail-upload">Showreel Thumbnail</label>
-            <input type="file" id="thumbnail-upload" name="thumbnail" accept="image/*">
-        </div>
-        <div class="upload-container">
-            <label for="video-upload">Showreel Video</label>
-            <input type="file" id="video-upload" name="video" accept="video/mp4, video/x-m4v, video/*">
-        </div>
-        <div id="buttons">
-            <a href="{% url 'videos-list' %}">Cancel</a>
-            <input type="submit" value="Update" name="confirm">
-        </div>
-    </form>
-</div> -->
 {% endblock %}
 
 {% block script %}
+<script src="{% static 'js/upload-video.js' %}"></script>
 <script>
     var page = 'videos-list';
 </script>
