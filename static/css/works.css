@@ -23,6 +23,10 @@ body {
     margin: 150px 0;
 }
 
+.page-header-container .page-header:nth-child(2) {
+    margin-left: 360px;
+}
+
 
 /* FILTER */
 .filter-menu {
@@ -93,4 +97,32 @@ body {
     color: #b3b3b3;
     font-family: Helvetica55;
     font-size: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(2) {
+        height: 45px;
+    }
+    .filter-menu>ul {
+        justify-content: space-between;
+    }
+    .filter-menu>ul li {
+        font-size: 18px;
+        margin-left: 0;
+    }
+    .description {
+        margin-left: 15px;
+    }
+    .works-catalog-list h2 {
+        font-size: 25px;
+    }
+    .works-catalog-list table {
+        width: 68%;
+        font-size: 14px;
+    }
+    .works-catalog-list table th {
+        padding: 0 0 10px 0;
+        font-size: 16px;
+    }
 }

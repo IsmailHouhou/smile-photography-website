@@ -21,6 +21,9 @@ body {
 .page-header-container {
     margin: 150px 0;
 }
+.page-header-container .page-header:nth-child(2) {
+    margin-left: 345px;
+}
 
 
 /* FILTER */
@@ -120,4 +123,46 @@ body {
     color: #b3b3b3;
     font-family: Helvetica55;
     font-size: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(3) {
+        height: 43px;
+    }
+    .equipment-catalog {
+        margin-left: -20px;
+        margin-bottom: 150px;
+    }
+    .equipment-catalog .filter-menu {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .filter-menu>ul {
+        justify-content: space-between;
+    }
+    .filter-menu>ul li {
+        font-size: 15px;
+        margin-left: 0;
+    }
+    .equipment-catalog-list {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .equipment-catalog-item {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .equipment-catalog-item .description {
+        padding-left: 25px;
+    }
+    .equipment-catalog-item h2 {
+        font-size: 30px;
+    }
+    .equipment-catalog-item table {
+        font-size: 16px;
+    }
+    .equipment-catalog .view-all {
+        margin-top: 20px;
+    }
 }

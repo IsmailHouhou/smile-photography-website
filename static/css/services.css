@@ -83,6 +83,11 @@ body {
     left: 40px;
 }
 
+.service-expertise .right-text{
+    position: relative;
+    top: -140px;
+}
+
 .service-expertise .right-text h1{
     text-align: right;
     margin-left: auto;
@@ -91,4 +96,62 @@ body {
 
 .service-expertise-item .right-image{
     justify-content: flex-start;
+}
+
+
+@media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(1) {
+        height: 42px;
+    }
+    /* TABLE */
+    .service-list table tr{ 
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid #fff;
+        text-align: center;
+        width: 100%;
+        padding: 40px 0;
+    }
+    .service-list table td{ 
+        border-top: 0;
+        padding-left: 0;
+    }
+    .service-list table td img { 
+        padding: 0;
+    }
+    .service-list table .service-title {
+        width: 100%;
+    }
+    .service-list table .service-title h3 {
+        top: 0;
+        margin-top: 0;
+    }
+    .service-list table .service-description p {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    /* SERVICE EXPERTISE */
+    .service-expertise {
+        margin: 80px 0 120px 0;
+    }
+    .service-expertise-item {
+        margin-bottom: 50px;
+    }
+    .service-expertise .right-text {
+        position: static;
+    }
+    .service-expertise-item .service-expertise-image {
+        display: block;
+    }
+    .service-expertise-item .service-expertise-image img {
+        width: 100%;
+    }
+    .service-expertise-item h1 {
+        position: static;
+        width: 100%;
+        font-size: 30px;
+        line-height: 30px;
+    }
+
 }

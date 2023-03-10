@@ -89,6 +89,13 @@ input:-webkit-autofill:active{
     width: 50%;
 }
 
+#message-form .phone-cells .form-cell:nth-child(1) {
+    width: 20%;
+}
+#message-form .phone-cells .form-cell:nth-child(2) {
+    width: 80%;
+}
+
 /* BUTTON */
 #message-form .form-button {
     text-align: right;
@@ -113,4 +120,42 @@ input:-webkit-autofill:active{
 /* FOOTER */
 #footer footer{
     margin-top: 150px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(5) {
+        height: 42px;
+    }
+    .subtitle {
+        font-size: 28px;
+        font-weight: 500;
+    }
+    #message-form {
+        width: 100%;
+        margin-bottom: 100px;
+    }
+    #message-form .form-row {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    #message-form .form-cell {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    #message-form .phone-cells {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #message-form .phone-cells .form-cell:nth-child(1) {
+        width: 20%;
+    }
+    #message-form .phone-cells .form-cell:nth-child(2) {
+        width: 75%;
+    }
+    #message-form .form-button {
+        margin-right: 0;
+        text-align: left;
+    }
 }

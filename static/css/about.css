@@ -35,6 +35,10 @@ body {
     padding-left: 20px;
 }
 
+.about-hero h1:nth-child(2) {
+    margin-left: 140px;
+}
+
 .about-hero img {
     width: 100%;
     position: relative;
@@ -51,3 +55,29 @@ body {
     margin: auto;
 }
 
+
+@media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(4) {
+        height: 45px;
+    }
+    .about-hero {
+        margin-top: 120px;
+    }
+    .about-hero h1 {
+        font-size: 40px;
+        line-height: 20px;
+    }
+    .about-hero h1:nth-child(2) {
+        margin-left: 20%;
+    }
+    .about-hero img {
+        top: -80px;
+    }
+    .about-description {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 500;
+        width: 100%;
+        margin-bottom: 100px;
+    }
+}
