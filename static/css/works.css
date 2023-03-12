@@ -99,6 +99,49 @@ body {
     font-size: 20px;
 }
 
+/* VIDEO PLAY */
+.reel-container{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:2;
+    background-color: #000;
+    transition: 0.5s;
+}
+
+.reel-container a{
+    cursor: pointer;
+}
+
+.reel-container a>img{
+    width: 30px;
+    float: right;
+    margin: 20px 40px 0 0;
+}
+
+.reel-container #reel-image-container video{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#video-player-icon {
+    width: 90px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(2) {

@@ -52,6 +52,13 @@
                             </tr>
                         </table>
                     </div>
+                    <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
+                    <div class="reel-container fade">
+                        <a onclick="closeReel()"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close reel"></a>
+                        <div id="reel-image-container">
+                            <video id="video" src="{{video.video.url}}" controls></video>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
@@ -59,5 +66,32 @@
         {% include "website/lets-talk.html" %}
 
         {% include "website/footer.html" %}
+
+        <script>
+            // HERO VIDEO
+            function showReel() {
+                video_container = document.getElementsByClassName('reel-container');
+                video_container[0].style.display = 'block';
+                video_container[0].style.visibility = 'visible';
+                video_container[0].style.opacity = '1';
+
+                body = document.getElementsByTagName('body');
+                body[0].style.overflowY = 'hidden';
+            }
+
+            function closeReel() {
+                video_container = document.getElementsByClassName('reel-container');
+                video_container[0].style.visibility = 'hidden';
+                video_container[0].style.opacity = '0';
+
+                video = document.getElementById('video');
+                video.pause();
+                video.currentTime = 0;
+                video.load();
+
+                body = document.getElementsByTagName('body');
+                body[0].style.overflowY = 'auto';
+            }
+        </script>
     </body>
 </html>
