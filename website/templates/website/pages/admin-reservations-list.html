@@ -29,7 +29,7 @@
             {% csrf_token %}
             <div id="search-input">
                 <i class="fa fa-search"></i>
-                <input type="text" name="search" id="search" placeholder="Rechercher Lorem, Lorem ipsum, Lorem ipsum..." autocomplete="off">
+                <input type="text" name="search" id="search" placeholder="Search by Client, Product or Category" autocomplete="off">
                 <input type="submit" value="SEARCH">
             </div>
         </form>
@@ -39,7 +39,7 @@
 <table id="list-table">
     <tr>
         <th>Client</th>
-        <th>Materials</th>
+        <th>Product</th>
         <th>Category</th>
         <th>Duration</th>
         <th>From</th>
@@ -56,7 +56,7 @@
                 <td>{{reservation.duration}}</td>
                 <td>{{reservation.start_date|date:"d/m/Y"}}</td>
                 <td>{{reservation.end_date|date:"d/m/Y"}}</td>
-                <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
+                <td class="time">{{reservation.order_date_time|date:"H:i"}}</td>
                 <td class="modify">
                     <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
                 </td>
@@ -69,7 +69,7 @@
                 <td>{{reservation.duration}}</td>
                 <td>{{reservation.start_date|date:"d/m/Y"}}</td>
                 <td>{{reservation.end_date|date:"d/m/Y"}}</td>
-                <td class="time">{{reservation.order_hour|time:"H:i"}}</td>
+                <td class="time">{{reservation.order_date_time|date:"d/m/y H:i"}}</td>
                 <td class="modify">
                     <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
                 </td>

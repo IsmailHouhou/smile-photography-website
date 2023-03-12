@@ -196,7 +196,7 @@ def delete_product(request, pk):
 @login_required(login_url='login')
 def products_list(request):
     # PAGINATION
-    p = Paginator(Product.objects.all(), 2)
+    p = Paginator(Product.objects.all(), 10)
     page = request.GET.get('page')
     products = p.get_page(page)
 
@@ -254,7 +254,7 @@ def videos_list(request):
     showreel = Showreel.objects.first()
 
     # PAGINATION
-    p = Paginator(Video.objects.all(), 2)
+    p = Paginator(Video.objects.all(), 10)
     page = request.GET.get('page')
     videos = p.get_page(page)
 
@@ -292,14 +292,14 @@ def reservations_list(request):
     products = Product.objects.all()
 
     # PAGINATION
-    p = Paginator(Reservation.objects.all(), 2)
+    p = Paginator(Reservation.objects.all().order_by('-order_date_time'), 10)
     page = request.GET.get('page')
     reservations = p.get_page(page)
 
     search_contains_query = request.GET.get('search')
 
     if search_contains_query != '' and search_contains_query is not None:
-        reservations = Reservation.objects.all().filter(
+        reservations = Reservation.objects.all().order_by('-order_date_time').filter(
             Q(client_name__icontains=search_contains_query) |
             Q(product__name__icontains=search_contains_query) |
             Q(product__category__icontains=search_contains_query)

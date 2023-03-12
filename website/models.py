@@ -68,7 +68,7 @@ class Message(models.Model):
 
     read = models.CharField(max_length=10, null=True, blank=True)
     message = models.TextField(null=True, blank=True)
-    date_sent = models.DateField(auto_now_add=True, auto_now=False, null=True)
+    # date_sent = models.DateField(auto_now_add=True, auto_now=False, null=True)
     date_time_sent = models.DateTimeField(auto_now_add=True, auto_now=False, null=True)
 
     def __str__(self):
@@ -100,8 +100,8 @@ class Reservation(models.Model):
     read = models.CharField(max_length=10, null=True, blank=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
-    order_date = models.DateField(auto_now_add=True, auto_now=False, null=True) # FIX FORMAT TYPE OF DATE
-    order_hour = models.TimeField(auto_now_add=True, auto_now=False, null=True)
+    order_date_time = models.DateTimeField(auto_now_add=True, auto_now=False, null=True) # FIX FORMAT TYPE OF DATE
+    # order_hour = models.TimeField(auto_now_add=True, auto_now=False, null=True)
 
     def __str__(self):
         return self.client_name + ' -> ' + self.product.name
