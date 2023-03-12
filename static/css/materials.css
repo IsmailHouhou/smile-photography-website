@@ -141,10 +141,13 @@ body {
     }
     .filter-menu>ul {
         justify-content: space-between;
+        overflow-x: scroll;
     }
     .filter-menu>ul li {
         font-size: 15px;
         margin-left: 0;
+        margin-right: 20px;
+        white-space: nowrap;
     }
     .equipment-catalog-list {
         flex-direction: column;
