@@ -23,23 +23,26 @@ def services(request):
     return render(request, 'website/pages/services.html')
 
 def works(request):
-    videos = Video.objects.all()
+    paginator = Paginator(Video.objects.all(), 2)
+    page_number = request.GET.get('page')
+    videos = paginator.get_page(page_number)
 
     category = request.GET.get('category')
-
     if category:
-        videos = videos.filter(category=category)
+        videos = Video.objects.all().filter(category=category)
 
     context = {'videos':videos}
     return render(request, 'website/pages/works.html', context)
 
 def materials(request):
-    products = Product.objects.all()
+    paginator = Paginator(Product.objects.all(), 3)
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
 
     category = request.GET.get('category')
 
     if category:
-        products = products.filter(category=category)
+        products = Product.objects.all().filter(category=category)
 
     context = {'products':products}
     return render(request, 'website/pages/materials.html', context)

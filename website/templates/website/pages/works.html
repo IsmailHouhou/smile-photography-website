@@ -9,6 +9,7 @@
         <title>SmileProd - Works</title>
         <link rel="stylesheet" href="{% static 'css/works.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
     </head>
     <body>
         {% include "website/header.html" %}
@@ -29,44 +30,67 @@
                     <li><a href="?category=Reporting">Reporting</a></li>
                 </ul>
             </div>
-            {% for video in videos %}
-                <div class="works-catalog-list">
-                    <img src="{{video.thumbnail.url}}" alt="">
-                    <div class="description">
-                        <h2>{{video.title}}</h2>
-                        <table>
-                            <tr>
-                                <th>Category</th>
-                                <th>Description</th>
-                                <th>Year</th>
-                            </tr>
-                            <tr>
-                                <td>{{video.category}}</td>
-                                <td>{{video.shortDescription}}</td>
-                                <td>{{video.year}}</td>
-                            </tr>
-                            <tr>
-                                <td>Brands</td>
-                                <td>sit amet</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
-                    <div class="reel-container fade">
-                        <a onclick="closeReel()"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close reel"></a>
-                        <div id="reel-image-container">
-                            <video id="video" src="{{video.video.url}}" controls></video>
+            <div class="infinite-container">
+                {% for video in videos %}
+                    <div class="works-catalog-list infinite-item">
+                        <img src="{{video.thumbnail.url}}" alt="">
+                        <div class="description">
+                            <h2>{{video.title}}</h2>
+                            <table>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Year</th>
+                                </tr>
+                                <tr>
+                                    <td>{{video.category}}</td>
+                                    <td>{{video.shortDescription}}</td>
+                                    <td>{{video.year}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Brands</td>
+                                    <td>sit amet</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
+                        <div class="reel-container fade">
+                            <a onclick="closeReel()"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close reel"></a>
+                            <div id="reel-image-container">
+                                <video id="video" src="{{video.video.url}}" controls></video>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            {% if videos.has_next %}
+            <a class="infinite-more-link" href="?page={{ videos.next_page_number }}"></a>
+            {% endif %}
         </div>
         
         {% include "website/lets-talk.html" %}
 
         {% include "website/footer.html" %}
 
+        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'js/infinite.min.js' %}"></script>
+        <script>
+            var infinite = new Waypoint.Infinite({
+                element: $('.infinite-container')[0],
+                handler: function(direction) {
+
+                },
+                offset: 'bottom-in-view',
+
+                onBeforePageLoad: function () {
+                    // $('.spinner-border').show();
+                },
+                onAfterPageLoad: function () {
+                    // $('.spinner-border').hide();
+                }
+            });
+        </script>
         <script>
             // HERO VIDEO
             function showReel() {

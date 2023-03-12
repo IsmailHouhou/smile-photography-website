@@ -71,12 +71,13 @@
             </div>
             <h1 id="angles">angles</h1>
             <div id="hero-image-container">
-                <img id="hero-image" src="{{showreel.thumbnail.url}}" alt="hero image">
+                <video id="hero-image" src="{{showreel.video.url}}" autoplay loop muted></video>
+                <!-- <img id="hero-image" src="{{showreel.thumbnail.url}}" alt="hero image"> -->
                 <a onclick="showReel()"><img id="video-player-icon" src="{% static 'images/01. Graphics/Fichier 11mdpi.png' %}" alt="video player icon"></a>    
                 <div class="reel-container fade">
                     <a onclick="closeReel()"><img src="{% static 'images/01. Graphics/1x/Fichier 1mdpi.png' %}" alt="Close reel"></a>
                     <div id="reel-image-container">
-                        <video id="video" src="{{showreel.video.url}}" controls autoplay loop></video>
+                        <video id="video" src="{{showreel.video.url}}" controls></video>
                     </div>
                 </div>
             </div>
