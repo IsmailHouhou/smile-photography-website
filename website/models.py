@@ -4,9 +4,10 @@ from django.db import models
 
 class Product(models.Model):
     PRODUCT_CATEGORIES = (
-        ('Category1', 'Category1'),
-        ('Category2', 'Category2'),
-        ('Camera Video', 'Camera Video'),
+        ('Image', 'Image'),
+        ('Lightning', 'Lightning'),
+        ('Support', 'Support'),
+        ('Sound', 'Sound'),
     )
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=PRODUCT_CATEGORIES)
@@ -31,9 +32,10 @@ class ProductImage(models.Model):
 
 class Video(models.Model):
     VIDEO_CATEGORIES = (
-        ('Category1', 'Category1'),
-        ('Category2', 'Category2'),
-        ('Commercials', 'Commercials'),
+        ('Documentary', 'Documentary'),
+        ('Advertisement', 'Advertisement'),
+        ('Event', 'Event'),
+        ('Reporting', 'Reporting'),
     )
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=200, choices=VIDEO_CATEGORIES)
@@ -58,8 +60,8 @@ class Showreel(models.Model):
     
 
 class Message(models.Model):
-    # client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
     client_name = models.CharField(max_length=200, null=True, blank=True)
+    client_city = models.CharField(max_length=200, null=True, blank=True)
     client_email = models.EmailField(null=True, blank=True)
     client_prefix = models.CharField(max_length=5, null=True, blank=True)
     client_phone = models.IntegerField(null=True, blank=True)
@@ -85,8 +87,7 @@ class Reservation(models.Model):
         ('business', 'business'),
         ('student', 'student'),
     )
-    # client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
 
     client_name = models.CharField(max_length=200, null=True, blank=True)
     client_email = models.EmailField(null=True, blank=True)
