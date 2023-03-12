@@ -130,7 +130,8 @@ body {
     .open-menu .menu-links a:nth-child(3) {
         height: 43px;
     }
-    .equipment-catalog {
+    .equipment-catalog {   
+        width: calc(100% + 40px);
         margin-left: -20px;
         margin-bottom: 150px;
     }

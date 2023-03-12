@@ -173,10 +173,12 @@ li a {
 }
 
 /* Hero Image */
-.hero #hero-image {
-    width: 100%;
+.hero #hero-image-container {
     position: relative;
     top: -75px;
+}
+.hero #hero-image {
+    width: 100%;
 }
 
 .hero .reel-container{
@@ -215,12 +217,13 @@ li a {
 .hero #video-player-icon {
     width: 90px;
     position: absolute;
-    top: 65%;
-    left: 45%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
 }
 
-.hero #video-player-icon:hover {
+/* .hero #video-player-icon:hover {
     animation: spin 4s linear infinite;
 }
 
@@ -228,7 +231,7 @@ li a {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* OUR HAPPY CLIENTS */
 .clients {
@@ -644,14 +647,11 @@ footer div img {
     #angles {
         margin-left: 109px;
     }
-    .hero #hero-image {
+    .hero #hero-image-container {
         top: -25px;
     }
     .hero #video-player-icon {
-        width: 63px;
-        top: 68%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 50px;
     }
     /* HAPPY CLIENTS */
     .clients div {

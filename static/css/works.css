@@ -122,6 +122,8 @@ body {
     width: 30px;
     float: right;
     margin: 20px 40px 0 0;
+    position: relative;
+    z-index: 2;
 }
 
 .reel-container #reel-image-container video{
@@ -149,10 +151,20 @@ body {
     }
     .filter-menu>ul {
         justify-content: space-between;
+        overflow-x: scroll;
     }
     .filter-menu>ul li {
         font-size: 18px;
         margin-left: 0;
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+    #video-player-icon {
+        width: 45px;
+        left: 90%;
+    }
+    .reel-container #reel-image-container video {
+        height: auto;
     }
     .description {
         margin-left: 15px;
