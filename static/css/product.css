@@ -4,14 +4,14 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     margin-top: 100px;
 }
 
 /* DESCRIPTION */
 .container .description {
-    width: 100%;
+    width: 30%;
     margin-top: 60px;
 }
 
@@ -147,6 +147,7 @@ body {
 
 .container .prices form a {
     text-decoration: none;
+    text-align: center;
     font-family: Helvetica55;
     font-size: 20px;
     font-weight: 600;
@@ -156,6 +157,28 @@ body {
     padding: 13px 91px;
     cursor: pointer;
 }
+
+#price {
+    margin-bottom: 0;
+}
+
+span#old-price {
+    font-weight: 100;
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-right: 15px;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #fdce02;
+    text-decoration-style: initial;
+}
+
+span#new-price {
+    font-weight: 100;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
 
 
 @media screen and (max-width: 600px) {

@@ -76,7 +76,8 @@
                     </div>
 
 
-                    <h4 id="price" style="margin-bottom: 40px;">{{product.price_day_1}} MAD</h4>
+                    <h4 id="price">{{product.price_day_1}} MAD</h4>
+                    <h5><span id="old-price"></span><span id="new-price"></span></h5>
 
                     <p>ADD TO BAG</p>
                     <!-- <button type="submit">reserve</button> -->
@@ -92,6 +93,8 @@
         <!-- PRICE SCRIPT -->
         <script>
             var text = document.getElementById('price');
+            var old_price = document.getElementById('old-price');
+            var new_price = document.getElementById('new-price');
             var day1Price = {{ product.price_day_1 }};
             text.innerHTML = (day1Price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD";
 
@@ -102,14 +105,26 @@
 
                 if (selectedValue == "1 Day") {
                     price = day1Price;
+                    day_price = 0;
                 } else if (selectedValue == "3 Days") {
                     price = day3Price * 3;
+                    day_price = day3Price;
                 } else if (selectedValue == "7 Days") {
                     price = day3Price * 7;
+                    day_price = day3Price;
                 } else if (selectedValue == "10 Days") {
                     price = day10Price * 10;
+                    day_price = day10Price;
                 }
                 text.innerHTML = (price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD";
+                if (day_price == 0) {
+                    old_price.innerHTML = "";
+                    new_price.innerHTML = "";
+                } else {
+                    old_price.innerHTML = (day1Price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD/day";
+                    new_price.innerHTML = (day_price).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " MAD/day";
+                }
+
             }
         </script>
     </body>
