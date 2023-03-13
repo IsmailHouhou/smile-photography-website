@@ -68,7 +68,7 @@ class Message(models.Model):
 
     read = models.CharField(max_length=10, null=True, blank=True)
     message = models.TextField(null=True, blank=True)
-    # date_sent = models.DateField(auto_now_add=True, auto_now=False, null=True)
+    date_sent = models.DateField(auto_now_add=True, auto_now=False, null=True)
     date_time_sent = models.DateTimeField(auto_now_add=True, auto_now=False, null=True)
 
     def __str__(self):

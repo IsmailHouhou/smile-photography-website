@@ -244,13 +244,14 @@ li a {
     text-align: center;
     font-family: Helvetica55;
     font-size: 30px;
+    margin-bottom: 70px;
 }
 
 .clients div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 70px 140px 0px 140px;
+    margin: 0 140px;
     justify-content: space-between;
 }
 
@@ -602,10 +603,213 @@ footer div img {
 }
 
 /* RESPONSIVE FOR LARGER SCREENS */
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 2000px) {
     body {
-        max-width: 1166px;
+        max-width: 1720px;
         margin: auto;
+    }
+}
+/* RESPONSIVE FOR LARGER SCREENS */
+@media screen and (min-width: 1400px) {
+    /* HEADER */
+    header ul {
+        margin-top: 40px;
+    }
+    #logo_text {
+        width: 240px;
+    }
+    #logo_icon {
+        width: 60px;
+    }
+    #menu img {
+        width: 50px;
+        margin-right: 20px;
+    }
+    #menu p {
+        font-size: 2.3em;
+    }
+    /* MENU */
+    .open-menu header #menu img {
+        width: 3em;
+    }
+    .open-menu .menu-links a {
+        font-size: 6em;
+    }
+    .open-menu .menu-footer {
+        width: 30%;
+    }
+    .open-menu .menu-footer a {
+        font-size: 1.9em;
+    }
+    /* HERO */
+    .hero {
+        margin-top: 100px;
+    }
+    .hero h1 {
+        font-size: 14em;
+        line-height: 0.9em;
+    }
+    .hero .text-layout div {
+        width: 30%;
+        font-size: 2em;
+        margin-top: -1em;
+    }
+    #angles {
+        margin-left: 30%;
+    }
+    .hero #hero-image-container {
+        top: -120px;
+    }
+    .hero #hero-image {
+        object-fit: cover;
+        height: 700px;
+    }
+    .hero #video-player-icon {
+        width: 10em;
+    }
+    /* CLIENTS */
+    .clients {
+        margin: 100px 0 200px 0;
+    }
+    .clients h2 {
+        font-size: 3em;
+        margin-bottom: 100px;
+    }
+    .clients div {
+        margin: 0 200px;
+    }
+    .clients div img {
+        max-width: 200px;
+        height: 40px;
+    }
+    .clients #marocTelecom {
+        height: 55px;
+        width: auto;
+    }
+    .clients #devoteam {
+        height: 47px;
+    }
+    /* SERVICES */
+    .services {
+        margin: 150px 0;
+        justify-content: space-between;
+    }
+    .section-header {
+        font-size: 6em;
+        line-height: 12px;
+    }
+    .services .service-carousel {
+        width: 43%;
+        margin-top: 70px;
+    }
+    .services .service-carousel h3 {
+        font-size: 1.8em;
+        margin-bottom: -65px;
+    }
+    .services .service-carousel img {
+        width: 60px;
+    }
+    .services .service-carousel #prev {
+        left: -46%;
+        top: 46px;
+    }
+    .services .service-carousel #next {
+        left: 44%;
+        top: 46px;
+    }
+    .services .service-carousel hr {
+        color: #fff;
+        border-width: 0.13em;
+    }
+    .services .service-carousel h2 {
+        font-size: 2em;
+    }
+    .services .service-carousel p {
+        margin: 30px 10% 0 10%;
+        font-size: 1.8em;
+        line-height: 1.1em;
+        letter-spacing: 2px;
+    }
+    /* WORKS */
+    .works {
+        margin: 250px 0;
+    }
+    .works .section-header:nth-child(2) {
+        margin-left: 14%;
+    }
+    .works table {
+        margin-top: 100px;
+        font-size: 2.6em;
+    }
+    .works table th {
+        font-size: 0.7em;
+    }
+    .works table td img {
+        width: 0.4em;
+    }
+    .works #view-all a {
+        font-size: 1.7em;
+    }
+    /* EQUIPMENT */
+    .equipment {
+        margin: 150px 0 270px 0;
+    }
+    .equipment .section-header:nth-child(2) {
+        margin-left: 14%;
+    }
+    .equipment .container .description {
+        top: auto;
+        bottom: 1em;
+        margin-left: 2em;
+    }
+    .equipment .container .description h2 {
+        margin: 0;
+        font-size: 2.5em;
+    }
+    .equipment .container .description .tags h3 {
+        border: 2px solid #fff;
+        padding: 0.3em 1em;
+        margin-right: 0.7em;
+        font-size: 1.7em;
+        margin-bottom: 0.2em;
+        /* margin-top: 1em; */
+    }
+    .equipment .container .description .tags h4 {
+        margin-top: auto;
+        margin-bottom: 0em;
+        font-size: 2em;
+    }
+    /* PROJECT IN MIND */
+    .project-in-mind .page-header {
+        font-size: 15em;
+        line-height: 0.17em;
+    }
+    .project-in-mind .page-header:nth-child(2) {
+        margin-left: 14%;
+    }
+    .project-in-mind div {
+        margin-top: 213px;
+    }
+    .project-in-mind a {
+        font-size: 3em;
+        border: 3px solid #FFF;
+        padding: 0.4em 3.5em;
+    }
+    /* FOOTER */
+    footer {
+        margin-top: 350px;
+    }
+    footer>div {
+        font-size: 2em;
+    }
+    footer a {
+        font-size: 1em;
+    }
+    footer div img {
+        width: 200px;
+    }
+    footer hr {
+        border-width: 0.13em;
     }
 }
 /* RESPONSIVE FOR MOBILE */

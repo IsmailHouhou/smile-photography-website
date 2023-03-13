@@ -68,6 +68,7 @@ body {
 
 .equipment-catalog-item{
     width: 33%;
+    margin-bottom: 100px;
 }
 
 .equipment-catalog-item img {

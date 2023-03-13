@@ -98,7 +98,34 @@ body {
     justify-content: flex-start;
 }
 
-
+@media screen and (min-width: 1400px) {
+    .open-menu .menu-links a:nth-child(1) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(1)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .page-header {
+        font-size: 14em;
+        line-height: 0.2em;
+    }
+    .service-list table .service-title h3 {
+        font-size: 2em;
+    }
+    .service-list table .service-description p {
+        font-size: 1.8em;
+    }
+    .service-list table td img {
+        width: 280px;
+        padding: 20px 30px 20px 15px;
+    }
+    .service-expertise-item h1 {
+        width: 50%;
+        font-size: 4em;
+        line-height: 1em;
+        top: -360px;
+    }
+}
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(1) {
         height: 42px;
