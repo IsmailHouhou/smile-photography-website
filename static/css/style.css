@@ -671,6 +671,10 @@ footer div img {
     .hero #video-player-icon {
         width: 10em;
     }
+    .hero .reel-container a>img {
+        width: 3em;
+        margin: 40px 40px 0 0;
+    }
     /* CLIENTS */
     .clients {
         margin: 100px 0 200px 0;
@@ -854,13 +858,13 @@ footer div img {
 
     /* HERO */
     .hero h1 {
-        font-size: 32px;
-        line-height: 45px;
+        font-size: 2.4em;
+        line-height: 1em;
     }
     .hero .text-layout div {
         width: 47%;
-        font-size: 12px;
-        height: 63px;
+        font-size: 0.6em;
+        height: 55px;
     }
     #angles {
         margin-left: 109px;
@@ -970,13 +974,13 @@ footer div img {
         width: 88%;
     }
     .project-in-mind .page-header {
-        font-size: 35px;
-        line-height: 50px;
+        font-size: 2.6em;
+        line-height: 1em;
         margin: 0;
     }
     .project-in-mind a {
-        font-size: 20px;
-        padding: 15px 70px;
+        font-size: 1.2em;
+        padding: 0.7em 4em;
     }
     .project-in-mind .page-header:nth-child(2) {
         margin-left: 50px;
@@ -1025,8 +1029,8 @@ footer div img {
         margin: 100px 0;
     }
     .page-header-container .page-header {
-        font-size: 40px;
-        line-height: 25px;
+        font-size: 3em;
+        line-height: 0.3em;
         font-weight: 500;
         text-transform: uppercase;
     }

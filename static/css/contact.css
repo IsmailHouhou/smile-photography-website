@@ -149,12 +149,18 @@ input:-webkit-autofill:active{
     }
 }
 @media screen and (max-width: 600px) {
+    .page-header-container {
+        margin: 100px 0 50px 0;
+    }
+    .page-header {
+        margin-bottom: 0;
+    }
     .open-menu .menu-links a:nth-child(5) {
         height: 42px;
     }
     .subtitle {
-        font-size: 28px;
-        font-weight: 500;
+        font-size: 1.3em;
+        font-weight: 600;
     }
     #message-form {
         width: 100%;

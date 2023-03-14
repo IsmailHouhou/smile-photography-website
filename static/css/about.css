@@ -91,8 +91,8 @@ body {
         margin-top: 120px;
     }
     .about-hero h1 {
-        font-size: 40px;
-        line-height: 20px;
+        font-size: 3em;
+        line-height: 0.2em;
     }
     .about-hero h1:nth-child(2) {
         margin-left: 20%;
