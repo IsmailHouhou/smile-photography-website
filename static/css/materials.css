@@ -126,13 +126,7 @@ body {
     font-size: 20px;
 }
 
-/* RESPONSIVE FOR LARGER SCREENS */
-@media screen and (min-width: 2000px) {
-    body {
-        max-width: 1720px;
-        margin: auto;
-    }
-}
+
 /* RESPONSIVE FOR LARGE SCREENS */
 @media screen and (min-width: 1500px) {
     .open-menu .menu-links a:nth-child(3) {
