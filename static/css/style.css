@@ -179,6 +179,8 @@ li a {
 }
 .hero #hero-image {
     width: 100%;
+    height: 500px;
+    object-fit: cover;
 }
 
 .hero .reel-container{
