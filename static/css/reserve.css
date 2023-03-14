@@ -104,8 +104,9 @@ form .radio-container label {
     margin-bottom: 25px;
 }
 
-#reserve-form .text-input-container input:focus {
+#reserve-form .text-input-container input:focus, #reserve-form .text-input-container input:not(:placeholder-shown) {
     outline: none;
+    border-bottom: 2px solid #fff;
 }
 
 #reserve-form .text-input-container .form-cell {
@@ -113,16 +114,19 @@ form .radio-container label {
     width: 46%;
 }
 
+#phone-row {
+    display: flex;
+    justify-content: space-between;
+    width: 46%;
+}
+
 #phone-row .form-cell:nth-child(1) {
-    width: 50%;
+    width: 20%;
 }
 
 #phone-row .form-cell:nth-child(2) {
-    width: 10%;
-}
-
-#phone-row .form-cell:nth-child(3) {
-    width: 36%;
+    width: 75%;
+    margin-right: 0;
 }
 
  /* To remove styling from autofill */
@@ -200,6 +204,49 @@ input:-webkit-autofill:active{
     cursor: pointer;
 }
 
+/* RESPONSIVE FOR LARGER SCREENS */
+@media screen and (min-width: 2000px) {
+    body {
+        max-width: 1720px;
+        margin: auto;
+    }
+}
+/* RESPONSIVE FOR LARGE SCREENS */
+@media screen and (min-width: 1500px) {
+    h2 {
+        font-size: 3em;
+        font-weight: 600;
+    }
+    form .radio-container label {
+        font-size: 1.5em;
+    }
+    form .custom-radio-button .checkmark {
+        border: 2px solid #b3b3b3;
+    }
+    #student-message {
+        font-size: 1.2em;
+    }
+    #reserve-form .text-input-container label {
+        font-size: 1.3em;
+    }
+    #reserve-form .text-input-container input {
+        font-size: 1.6em;
+    }
+    #right-form-container label {
+        font-size: 1.3em;
+    }
+    #right-form-container input[type="date"] {
+        font-size: 1.6em;
+        padding: 0.6em;
+        border: 2px solid #fff;
+    }
+    #right-form-container p {
+        font-size: 1.6em;
+    }
+    #reserve-form .form-button button {
+        font-size: 2em;
+    }
+}
 @media screen and (max-width: 600px) {
     #reserve-form {
         flex-direction: column;

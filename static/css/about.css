@@ -56,6 +56,40 @@ body {
 }
 
 
+/* RESPONSIVE FOR LARGER SCREENS */
+@media screen and (min-width: 2000px) {
+    body {
+        max-width: 1720px;
+        margin: auto;
+    }
+}
+/* RESPONSIVE FOR LARGE SCREENS */
+@media screen and (min-width: 1500px) {
+    .open-menu .menu-links a:nth-child(4) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(4)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .about-hero {
+        margin-top: 200px;
+    }
+    .about-hero h1 {
+        font-size: 14em;
+        line-height: 0.2em;
+    }
+    .about-hero h1:nth-child(2) {
+        margin-left: 14%;
+    }
+    .about-hero img {
+        top: -336px;
+    }
+    .about-description {
+        font-size: 3em;
+        width: 90%;
+        margin: -150px auto 0 auto;
+    }
+}
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(4) {
         height: 45px;

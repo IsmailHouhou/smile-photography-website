@@ -180,7 +180,70 @@ span#new-price {
 }
 
 
-
+/* RESPONSIVE FOR LARGER SCREENS */
+@media screen and (min-width: 2000px) {
+    body {
+        max-width: 1720px;
+        margin: auto;
+    }
+}
+/* RESPONSIVE FOR LARGE SCREENS */
+@media screen and (min-width: 1500px) {
+    .container {
+        align-items: center;
+    }
+    .container .description {
+        width: 25%;
+        margin-bottom: 0;
+    }
+    .container .description h2 {
+        font-size: 3.4em;
+    }
+    .container .description p {
+        font-size: 1.2em;
+        line-height: 1.4em;
+    }
+    .container .images img {
+        height: 900px;
+        object-fit: cover;
+    }
+    .images .slide-menu {
+        font-size: 1.4em;
+    }
+    .container .prices {
+        margin-bottom: 0;
+    }
+    .container .prices h2 {
+        font-size: 3.4em;
+        letter-spacing: 1px;
+    }
+    .container .prices p {
+        font-size: 1.4em;
+        line-height: 1.4em;
+    }
+    .container .prices h4 {
+        font-size: 1.4em;
+        letter-spacing: 1px;
+    }
+    .container .prices form {
+        font-size: 1.3em;
+    }
+    .container .prices form .custom-radio-button {
+        align-items: center;
+        margin-right: 1em;
+    }
+    .container .prices form .custom-radio-button .checkmark {
+        width: 0.6em;
+        height: 0.6em;
+        border: 2px solid #b3b3b3;
+    }
+    span#new-price {
+        font-size: 1.2em;
+    }
+    span#old-price {
+        font-size: 1.2em;
+    }
+}
 @media screen and (max-width: 600px) {
     .container {
         flex-direction: column;

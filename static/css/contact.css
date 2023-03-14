@@ -51,8 +51,9 @@ body {
     font-size: 20px;
 }
 
-#message-form input:focus, textarea:focus {
+#message-form input:focus, textarea:focus,#message-form input:not(:placeholder-shown), textarea:not(:placeholder-shown) {
     outline: none;
+    border-bottom: 2px solid #fff;
 }
 
  /* To remove styling from autofill */
@@ -65,7 +66,6 @@ input:-webkit-autofill:active{
 }
 
 #message-form textarea {
-    margin-right: 25px;
     resize: none;
     overflow: hidden;
 }
@@ -76,30 +76,31 @@ input:-webkit-autofill:active{
 
 #message-form .form-row {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 25px;
 }
 
 #message-form .form-cell {
-    margin-right: 30px;
-    width: 46%;
+    width: 48%;
 }
 
 #message-form .phone-cells {
     display: flex;
-    width: 50%;
+    justify-content: space-between;
+    width: 48%;
 }
 
 #message-form .phone-cells .form-cell:nth-child(1) {
     width: 20%;
 }
 #message-form .phone-cells .form-cell:nth-child(2) {
-    width: 80%;
+    width: 75%;
+    margin-right: 0;
 }
 
 /* BUTTON */
 #message-form .form-button {
     text-align: right;
-    margin-right: 25px;
     margin-top: 50px;
 }
 
@@ -122,7 +123,38 @@ input:-webkit-autofill:active{
     margin-top: 150px;
 }
 
-
+/* RESPONSIVE FOR LARGER SCREENS */
+@media screen and (min-width: 2000px) {
+    body {
+        max-width: 1720px;
+        margin: auto;
+    }
+}
+/* RESPONSIVE FOR LARGE SCREENS */
+@media screen and (min-width: 1500px) {
+    .open-menu .menu-links a:nth-child(5) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(5)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .page-header {
+        margin-bottom: 0.6em;
+    }
+    .subtitle {
+        font-size: 3em;
+    }
+    #message-form label {
+        font-size: 1.4em;
+    }
+    #message-form input, textarea {
+        font-size: 1.8em;
+    }
+    #message-form .form-button button {
+        font-size: 2em;
+        padding: 0.6em 2.6em;
+    }
+}
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(5) {
         height: 42px;

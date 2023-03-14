@@ -57,9 +57,9 @@
             {% if products.has_next %}
             <a class="infinite-more-link" href="?page={{ products.next_page_number }}"></a>
             {% endif %}
-            <div class="view-all">
+            <!-- <div class="view-all">
                 <a href="{% url 'materials' %}">View All</a>
-            </div>
+            </div> -->
         </div>
 
         {% include 'website/lets-talk.html' %}

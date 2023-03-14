@@ -609,8 +609,8 @@ footer div img {
         margin: auto;
     }
 }
-/* RESPONSIVE FOR LARGER SCREENS */
-@media screen and (min-width: 1400px) {
+/* RESPONSIVE FOR LARGE SCREENS */
+@media screen and (min-width: 1500px) {
     /* HEADER */
     header ul {
         margin-top: 40px;
@@ -810,6 +810,11 @@ footer div img {
     }
     footer hr {
         border-width: 0.13em;
+    }
+    /* OTHER PAGES */
+    .page-header {
+        font-size: 14em;
+        line-height: 0.2em;
     }
 }
 /* RESPONSIVE FOR MOBILE */

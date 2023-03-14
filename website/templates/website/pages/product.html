@@ -16,7 +16,6 @@
         <div class="container">
             <div class="description">
                 <h2>Description</h2>
-                <!-- <p>{{product.description}}</p> -->
                 <div class="full-frame">
                     <h4>Full-frame creativity</h4>
                     <p>{{product.description}}</p>
@@ -28,7 +27,6 @@
                 {% for image in product.productimage_set.all %}
                     <div class="slides fade">
                         <img src="{{image.image.url}}" alt="">
-                        <!-- <hr style="left: -37%;"> -->
                     </div>
                 {% endfor %}
                 <div class="slide-menu">
