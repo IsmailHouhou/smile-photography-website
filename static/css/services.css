@@ -63,6 +63,7 @@ body {
 .service-expertise {
     margin-top: 150px;
     margin-bottom: -180px;
+    height: 1000px;
 }
 
 .service-expertise-item .service-expertise-image {
@@ -74,18 +75,26 @@ body {
     width: 54%;
 }
 
-.service-expertise-item h1{
+.service-expertise-item h1 {
     width: 52%;
     font-size: 48px;
     line-height: 48px;
     position: relative;
     top: -260px;
     left: 40px;
+    z-index: 2;
 }
 
-.service-expertise .right-text{
+img.experts {
+    width: 230px;
     position: relative;
-    top: -140px;
+    top: -480px;
+    left: 460px;
+}
+
+.service-expertise .right-text {
+    position: relative;
+    top: -350px;
 }
 
 .service-expertise .right-text h1{
@@ -120,11 +129,29 @@ body {
         width: 280px;
         padding: 20px 30px 20px 15px;
     }
+    .service-expertise {
+        margin-bottom: 0;
+        height: 1250px;
+    }
     .service-expertise-item h1 {
         width: 50%;
-        font-size: 4em;
+        font-size: 4.3em;
         line-height: 1em;
         top: -360px;
+        left: 0;
+    }
+    .service-expertise .service-expertise-item:nth-child(1) h1 {
+        margin-left: 50px;
+    }
+
+    img.experts {
+        width: 310px;
+        position: relative;
+        top: -680px;
+        left: 700px;
+    }
+    .service-expertise .right-text h1 {
+        margin-right: 50px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -162,6 +189,9 @@ body {
     /* SERVICE EXPERTISE */
     .service-expertise {
         margin: 80px 0 120px 0;
+    }
+    .service-expertise .experts {
+        display: none;
     }
     .service-expertise-item {
         margin-bottom: 50px;
