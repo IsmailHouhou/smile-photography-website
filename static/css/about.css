@@ -83,6 +83,33 @@ body {
         margin: -150px auto 0 auto;
     }
 }
+
+/* RESPONSIVE FOR TABLET */
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .open-menu .menu-links a:nth-child(4) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(4)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .about-hero {
+        margin-top: 100px;
+    }
+    .about-hero h1 {
+        font-size: 5em;
+    }
+    .about-hero img {
+        top: -150px;
+    }
+    .about-description {
+        font-size: 1.6em;
+    }
+    footer {
+        margin-top: 150px;
+    }
+}
+
+/* RESPONSIVE FOR TABLET */
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(4) {
         height: 45px;

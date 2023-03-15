@@ -827,6 +827,157 @@ footer div img {
         line-height: 0.2em;
     }
 }
+
+/* RESPONSIVE FOR TABLET */
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    body {
+        margin: 0 50px;
+    }
+    /* MENU */
+    #logo_text {
+        width: 120px;
+    }
+    #logo_icon {
+        width: 30px;
+    }
+    .open-menu header #menu img {
+        width: 25px;
+    }
+    .open-menu .menu-links a {
+        font-size: 2em;
+    }
+    .open-menu .menu-footer {
+        width: 40%;
+    }
+    .open-menu .menu-footer a {
+        font-size: 1em;
+    }
+    /* HERO */
+    .hero h1 {
+        font-size: 5.5em;
+        line-height: 1em;
+    }
+    #angles {
+        margin-left: 30%;
+    }
+    .hero .text-layout div {
+        font-size: 1.1em;
+        height: 120px;
+    }
+    .hero #hero-image {
+        height: 300px;
+        object-fit: cover;
+    }
+    .hero #hero-image-container {
+        top: -55px;
+    }
+    /* CLIENTS */
+    .clients div {
+        flex-wrap: nowrap;
+        margin: 0 20px;
+    }
+    .clients h2 {
+        margin-bottom: 50px;
+    }
+    /* SERVICES */
+    .services {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 100px 0 150px 0;
+    }
+    .services #service-header {
+        width: 100%;
+    }
+    .section-header {
+        font-size: 4em;
+        line-height: 0.2em;
+    }
+    .services .section-header:nth-child(2) {
+        margin-left: 25%;
+    }
+    .services .service-carousel {
+        width: 75%;
+        margin-top: 20px;
+    }
+    /* WORKS */
+    .works .section-header:nth-child(2) {
+        margin-left: 25%;
+    }
+    .works table {
+        font-size: 1.2em;
+    }
+    .works table th {
+        font-size: 0.9em;
+    }
+    .works table td img {
+        width: 10px;
+    }
+    .works #view-all a {
+        font-size: 1em;
+    }
+    /* EQUIPMENT */
+    .equipment .section-header:nth-child(2) {
+        margin-left: 25%;
+    }
+    .equipment>#materials-list {
+        width: calc(100% + 100px);
+        margin-left: -50px;
+        margin-top: 100px;
+    }
+    .equipment .container img {
+        object-fit: cover;
+        height: 150px;
+    }
+    .equipment .container .description {
+        top: auto;
+        bottom: 2%;
+    }
+    .equipment .container .description h2 {
+        font-size: 1.3em;
+    }
+    .equipment .container .description .tags h3 {
+        padding: 10px 10px;
+        font-size: 1em;
+        line-height: 1em;
+    }
+    /* PROJECT IN MIND */
+    .project-in-mind {
+        margin: 150px 0 100px 0;
+    }
+    .project-in-mind .page-header {
+        font-size: 5em;
+        font-weight: 500;
+    }
+    /* FOOTER */
+    footer {
+        margin-top: 200px;
+    }
+    footer>div {
+        font-size: 1.2em;
+    }
+    footer a {
+        font-size: 0.9em;
+    }
+    footer #media {
+        width: 40%;
+    }
+    footer div img {
+        width: 120px;
+    }
+    /* OTHER PAGES */
+    .page-header {
+        font-size: 5em;
+        line-height: 0.2em;
+    }
+    .page-header-container .page-header:nth-child(2) {
+        margin-left: 30%;
+    }
+    .page-header-container {
+        margin: 100px 0 150px 0;
+    }
+}
+
 /* RESPONSIVE FOR MOBILE */
 @media screen and (max-width: 600px) {
     body {
@@ -870,6 +1021,10 @@ footer div img {
     }
     #angles {
         margin-left: 109px;
+    }
+    .hero #hero-image {
+        height: 150px;
+        object-fit: cover;
     }
     .hero #hero-image-container {
         top: -25px;

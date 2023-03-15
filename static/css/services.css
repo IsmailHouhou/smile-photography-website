@@ -154,7 +154,60 @@ img.experts {
         margin-right: 50px;
     }
 }
+
+
+/* RESPONSIVE FOR TABLET */
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .open-menu .menu-links a:nth-child(1) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(1)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .page-header-container {
+        margin: 100px 0 150px 0;
+    }
+    .page-header-container .page-header:nth-child(2) {
+        margin-left: 30%;
+    }
+    .service-list table .service-title h3 {
+        font-size: 1em;
+        top: -25px;
+    }
+    .service-list table .service-description p {
+        font-size: 0.7em;
+        top: -15px;
+    }
+    .service-list table td img {
+        width: 100px;
+        padding: 10px 20px 10px 15px;
+    }
+    .service-expertise {
+        margin-top: 100px;
+        margin-bottom: 0;
+        height: 350px;
+    }
+    .service-expertise-item h1 {
+        font-size: 1.5em;
+        line-height: 1em;
+        top: -146px;
+    }
+    img.experts {
+        width: 137px;
+        top: -263px;
+        left: 267px;
+    }
+    .service-expertise .right-text {
+        top: -200px;
+    }
+}
+
+/* RESPONSIVE FOR MOBILE */
 @media screen and (max-width: 600px) {
+    .open-menu .menu-links a:nth-child(1)::after {
+        border-bottom: 0.2em solid white;
+        top: -130%;
+    }
     .open-menu .menu-links a:nth-child(1) {
         height: 42px;
     }

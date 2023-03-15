@@ -156,6 +156,60 @@ body {
         font-size: 1.5em;
     }
 }
+
+/* RESPONSIVE FOR TABLET */
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .open-menu .menu-links a:nth-child(3) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(3)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .page-header-container {
+        margin: 100px 0 150px 0;
+    }
+    .page-header-container .page-header:nth-child(2) {
+        margin-left: 30%;
+    }
+    .equipment-catalog {
+        width: calc(100% + 100px);
+        margin-left: -50px;
+        margin-bottom: 0;
+    }
+    .filter-menu>ul li {
+        font-size: 1.1em;
+    }
+    .equipment-catalog-list {
+        margin-bottom: 0;
+    }
+    .equipment-catalog-item {
+        margin-bottom: 50px;
+    }
+    .equipment-catalog-item img {
+        height: 150px;
+    }
+    .equipment-catalog-item .description {
+        font-size: 1em;
+        padding-left: 30px;
+    }
+    .equipment-catalog-item h2 {
+        font-size: 1.5em;
+    }
+    .equipment-catalog-item table {
+        font-size: 0.8em;
+    }
+    .project-in-mind {
+        margin: 0 0 100px 0;
+    }
+    .project-in-mind div {
+        margin-top: 100px;
+    }
+    footer {
+        margin-top: 140px;
+    }
+}
+
+/* RESPONSIVE FOR MOBILE */
 @media screen and (max-width: 600px) {
     .open-menu .menu-links a:nth-child(3) {
         height: 43px;

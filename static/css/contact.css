@@ -148,6 +148,31 @@ input:-webkit-autofill:active{
         padding: 0.6em 2.6em;
     }
 }
+
+/* RESPONSIVE FOR TABLET */
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .open-menu .menu-links a:nth-child(5) {
+        height: 1.1em;
+    }
+    .open-menu .menu-links a:nth-child(5)::after {
+        border-bottom: 0.18em solid white;
+    }
+    .page-header-container {
+        margin: 100px 0 50px 0;
+    }
+    .page-header {
+        margin-bottom: 0;
+    }
+    #message-form {
+        width: 100%;
+        margin-top: 70px;
+    }
+    footer {
+        margin-top: 150px;
+    }
+}
+
+/* RESPONSIVE FOR TABLET */
 @media screen and (max-width: 600px) {
     .page-header-container {
         margin: 100px 0 50px 0;
