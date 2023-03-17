@@ -26,18 +26,26 @@
             <div class="form-item">
                 <label for="category">Category</label>
                 <select name="category" id="category">
-                    {% if product.category == 'Category1' %}
-                        <option value="Category1" selected>Category 1</option>
-                        <option value="Category2">Category 2</option>
-                        <option value="Camera Video">Camera Video</option>
-                    {% elif product.category == 'Category2' %}
-                        <option value="Category1">Category 1</option>
-                        <option value="Category2" selected>Category 2</option>
-                        <option value="Camera Video">Camera Video</option>
-                    {% elif product.category == 'Camera Video' %}
-                        <option value="Category1">Category 1</option>
-                        <option value="Category2">Category 2</option>
-                        <option value="Camera Video" selected>Camera Video</option>
+                    {% if product.category == 'Image' %}
+                        <option value="Image" selected>Image</option>
+                        <option value="Lightning">Lightning</option>
+                        <option value="Support">Support</option>
+                        <option value="Sound">Sound</option>
+                    {% elif product.category == 'Lightning' %}
+                        <option value="Image">Image</option>
+                        <option value="Lightning" selected>Lightning</option>
+                        <option value="Support">Support</option>
+                        <option value="Sound">Sound</option>
+                    {% elif product.category == 'Support' %}
+                        <option value="Image">Image</option>
+                        <option value="Lightning">Lightning</option>
+                        <option value="Support" selected>Support</option>
+                        <option value="Sound">Sound</option>
+                    {% elif product.category == 'Sound' %}
+                        <option value="Image">Image</option>
+                        <option value="Lightning">Lightning</option>
+                        <option value="Support">Support</option>
+                        <option value="Sound" selected>Sound</option>
                     {% endif %}
                 </select>
             </div>
