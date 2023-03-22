@@ -5,7 +5,7 @@ from django.db import models
 class Product(models.Model):
     PRODUCT_CATEGORIES = (
         ('Image', 'Image'),
-        ('Lightning', 'Lightning'),
+        ('Lighting', 'Lighting'),
         ('Support', 'Support'),
         ('Sound', 'Sound'),
     )

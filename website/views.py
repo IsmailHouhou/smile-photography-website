@@ -134,9 +134,22 @@ def notification():
 # DASHBOARD
 @login_required(login_url='login')
 def dashboard(request):
+    image = Product.objects.filter(category='Image').count()
+    lighting = Product.objects.filter(category='lighting').count()
+    support = Product.objects.filter(category='support').count()
+    sound = Product.objects.filter(category='sound').count()
+
+    documentary = Video.objects.filter(category='Documentary').count()
+    advertisement = Video.objects.filter(category='Advertisement').count()
+    event = Video.objects.filter(category='Event').count()
+    reporting = Video.objects.filter(category='Reporting').count()
+
+    reservations = Reservation.objects.filter(read='False').count()
+    messages = Message.objects.filter(read='False').count()
+
     reservation_notif, message_notif = notification()
 
-    context = {'reservation_notif':reservation_notif, 'message_notif':message_notif}
+    context = {'image':image, 'lighting':lighting, 'support': support, 'sound': sound, 'documentary': documentary, 'advertisement': advertisement, 'event': event, 'reporting': reporting , 'reservations': reservations, 'messages': messages, 'reservation_notif':reservation_notif, 'message_notif':message_notif}
     return render(request, 'website/pages/admin-dashboard.html', context)
 
 # PRODUCT

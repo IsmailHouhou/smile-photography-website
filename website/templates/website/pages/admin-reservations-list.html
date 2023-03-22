@@ -56,7 +56,7 @@
                 <td>{{reservation.duration}}</td>
                 <td>{{reservation.start_date|date:"d/m/Y"}}</td>
                 <td>{{reservation.end_date|date:"d/m/Y"}}</td>
-                <td class="time">{{reservation.order_date_time|date:"H:i"}}</td>
+                <td class="time">{{reservation.order_date_time|date:"d/m/y H:i"}}</td>
                 <td class="modify">
                     <a href="{% url 'delete-reservation' reservation.id %}"><img src="{% static 'images/01. Graphics/1x/Fichier 26mdpi.png' %}" alt=""></a>
                 </td>

@@ -10,14 +10,48 @@
     border: 1px solid #ddd;
     background-color: #fff;
     width: 100%;
-    height: 200px;
+    height: 175px;
     margin-left: 15px;
     margin-right: 15px;
 }
 
-.dash-item h3 {
+.dash-item .div-title {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 15px 20px;
+}
+
+.dash-item .div-title h3 {
     color: #333;
     font-family: 'Helvetica45';
     font-weight: 600;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
+}
+
+.dash-item table {
+    width: 100%;
+    text-align: center;
+}
+
+.dash-item table th {
+    border: 0;
+    padding: 1em;
+    font-weight: 500;
+}
+
+.dash-item table td {
+    font-size: 2em;
+    color: #b3b3b3;
+}
+
+.dash-row:nth-child(3) .dash-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-row:nth-child(3) .dash-item p {
+    text-align: center;
+    font-size: 4em;
+    color: #b3b3b3; 
+    margin-top: 10px;
 }

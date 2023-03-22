@@ -17,22 +17,82 @@
 
 <div class="dash-row">
     <div class="dash-item">
-        <h3>Reservation</h3>
+        <div class="div-title">
+            <img src="{% static 'images/01. Graphics/1x/Fichier 16mdpi.png' %}" alt="">
+            <h3>Products</h3>
+        </div>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Lighting</th>
+                <th>Support</th>
+                <th>Sound</th>
+            </tr>
+            <tr>
+                <td>{{ image }}</td>
+                <td>{{ lighting }}</td>
+                <td>{{ support }}</td>
+                <td>{{ sound }}</td>
+            </tr>
+        </table>
     </div>
     <div class="dash-item">
-        <h3>Visitors</h3>
+        <div class="div-title">
+            <img src="{% static 'images/01. Graphics/1x/Fichier 18mdpi.png' %}" alt="">
+            <h3>Videos</h3>
+        </div>
+        <table>
+            <tr>
+                <th>Documentary</th>
+                <th>Advertisement</th>
+                <th>Event</th>
+                <th>Reporting</th>
+            </tr>
+            <tr>
+                <td>{{ documentary }}</td>
+                <td>{{ advertisement }}</td>
+                <td>{{ event }}</td>
+                <td>{{ reporting }}</td>
+            </tr>
+        </table>
     </div>
 </div>
 <div class="dash-row">
-    <div class="dash-item">
-        <h3>Material Details</h3>
-    </div>
-    <div class="dash-item">
-        <h3>Material Details</h3>
-    </div>
-    <div class="dash-item">
-        <h3>Material Details</h3>
-    </div>
+    {% if reservations == 0 %}
+        <div class="dash-item">
+            <div class="div-title">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 17mdpi.png' %}" alt="">
+                <h3>Reservations unchecked</h3>
+            </div>
+            <p>{{ reservations }}</p>
+        </div>
+    {% else %}
+        <div class="dash-item">
+            <div class="div-title">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 10mdpi.png' %}" alt="">
+                <h3>Reservations unchecked</h3>
+            </div>
+            <p style="color: #fdce02">{{ reservations }}</p>
+        </div>
+    {% endif %}
+
+    {% if messages == 0 %}
+        <div class="dash-item">
+            <div class="div-title">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 20mdpi.png' %}" alt="">            
+                <h3>Messages unread</h3>
+            </div>
+            <p>{{ messages }}</p>
+        </div>
+    {% else %}
+        <div class="dash-item">
+            <div class="div-title">
+                <img src="{% static 'images/01. Graphics/1x/Fichier 14mdpi.png' %}" alt="">            
+                <h3>Messages unread</h3>
+            </div>
+            <p style="color: #fdce02">{{ messages }}</p>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
 
