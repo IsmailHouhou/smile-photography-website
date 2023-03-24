@@ -80,6 +80,9 @@ class Message(models.Model):
     def phoneNumber(self):
         return self.client_prefix + str(self.client_phone)
     
+    def shortName(self):
+        return self.client_name[:15]
+    
 
 class Reservation(models.Model):
     STATUS = (

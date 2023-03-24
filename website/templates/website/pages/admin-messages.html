@@ -27,7 +27,11 @@
                         <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                         <div class="message-info">
                             <div class="message-header">
-                                <h4>{{message.client_name}}</h4>
+                                {% if message.client_name|length < 15 %}
+                                    <h4>{{message.client_name}}</h4>
+                                {% else %}
+                                    <h4>{{message.shortName}}...</h4>
+                                {% endif %}
                                 <h5>{{message.date_time_sent|date:"d/m/Y H:i"}}</h5>
                             </div>
                             <p>{{message.shortMessage}}...</p>
@@ -38,7 +42,11 @@
                         <img src="{% static 'images/01. Graphics/1x/Avatar.png' %}" alt="">
                         <div class="message-info">
                             <div class="message-header">
-                                <h4>{{message.client_name}}</h4>
+                                {% if message.client_name|length < 15 %}
+                                    <h4>{{message.client_name}}</h4>
+                                {% else %}
+                                    <h4>{{message.shortName}}...</h4>
+                                {% endif %}
                                 <h5>{{message.date_time_sent|date:"d/m/Y H:i"}}</h5>
                             </div>
                             <p>{{message.shortMessage}}...</p>

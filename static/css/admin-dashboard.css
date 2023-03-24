@@ -31,6 +31,8 @@
 .dash-item table {
     width: 100%;
     text-align: center;
+    width: 90%;
+    margin: auto;
 }
 
 .dash-item table th {
@@ -42,6 +44,7 @@
 .dash-item table td {
     font-size: 2em;
     color: #b3b3b3;
+    width: 25%;
 }
 
 .dash-row:nth-child(3) .dash-item {
