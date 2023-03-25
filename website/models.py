@@ -49,7 +49,7 @@ class Video(models.Model):
         return self.title
     
     def shortDescription(self):
-        return self.description[:20]+'...'
+        return self.description[:33]+'...'
     
 class Showreel(models.Model):
     thumbnail = models.ImageField()

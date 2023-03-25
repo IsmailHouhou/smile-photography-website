@@ -26,7 +26,7 @@
                     Drag and drop the video from your computer into this area or use the upload button
                 </div>
                 <label id="video-upload-label" for="video-upload"><img src="{% static 'images/01. Graphics\1x\Fichier 23mdpi.png' %}" alt="upload"> Upload</label>
-                <input type="file" id="video-upload" name="video" accept="video/mp4, video/x-m4v, video/*">
+                <input type="file" id="video-upload" name="video" accept="video/mp4, video/x-m4v, video/*" required>
             </div>
             <div id="video-list"></div>
         </div>
@@ -37,7 +37,7 @@
                     Drag and drop the thumbnail from your computer into this area or use the upload button
                 </div>
                 <label id="thumbnail-upload-label" for="thumbnail-upload"><img src="{% static 'images/01. Graphics\1x\Fichier 23mdpi.png' %}" alt="upload"> Upload</label>
-                <input type="file" id="thumbnail-upload" name="thumbnail" accept="image/*">
+                <input type="file" id="thumbnail-upload" name="thumbnail" accept="image/*" required>
             </div>
             <div id="thumbnail-list"></div>
         </div>

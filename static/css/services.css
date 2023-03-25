@@ -242,6 +242,7 @@ img.experts {
     /* SERVICE EXPERTISE */
     .service-expertise {
         margin: 80px 0 120px 0;
+        height: 700px;
     }
     .service-expertise .experts {
         display: none;

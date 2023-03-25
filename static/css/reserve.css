@@ -308,14 +308,12 @@ input:-webkit-autofill:active{
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
-    }
-    #phone-row .form-cell:nth-child(1) {
         width: 100%;
     }
-    #phone-row .form-cell:nth-child(2) {
+    #phone-row .form-cell:nth-child(1) {
         width: 20%;
     }
-    #phone-row .form-cell:nth-child(3) {
+    #phone-row .form-cell:nth-child(2) {
         width: 75%;
     }
     #right-form-container {
